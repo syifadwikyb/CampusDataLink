@@ -47,31 +47,29 @@
             <div class="flex justify-center mx-5 mt-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
                     <div data-aos="zoom-in" data-aos-delay="0"
-                        class="bg-light dark:bg-slate-800 dark:text-white p-3 md:p-4 lg:p-5 w-60 md:-70 lg:w-80 rounded-lg flex flex-col items-center shadow-xl">                        
+                        class="bg-slate-100 dark:bg-slate-800 dark:text-white p-3 md:p-4 lg:p-5 w-60 md:-70 lg:w-80 rounded-lg flex flex-col items-center shadow-xl">                        
                         <i class="fa-solid fa-eye w-6 md:w-7 lg:w-8 mb-4 text-purple dark:text-orange-500" style="transform: scale(1.5);"></i>
-                        <p class="font-bold text-sm md:text-base lg:text-base text-center">Preview Langsung<br>
-                            <span class="font-normal">
+                        <p class="font-bold text-sm md:text-base lg:text-base text-center text-purple dark:text-orange-500">Preview Langsung<br>
+                            <span class="font-normal text-dark dark:text-white">
                                 Melihat hasil input gambar dan teks secara langsung tanpa perlu menyimpan terlebih dahulu.
                             </span>
                         </p>
                     </div>
                     <div data-aos="zoom-in" data-aos-delay="200"
-                        class="bg-purple dark:bg-orange-500 dark:text-white p-3 md:p-4 lg:p-5 w-60 md:-70 lg:w-80 rounded-lg flex flex-col items-center shadow-xl">
-                        {{-- <img src="{{ asset('asset/icon.png') }}" class="sm:w-6 md:w-7 lg:w-8 max-w-10 mb-4"
-                            alt=""> --}}                        
-                        <i class="fa-solid fa-hashtag w-6 md:w-7 lg:w-8 mb-4 text-dark dark:text-white" style="transform: scale(1.5);"></i>
-                        <p class="font-bold text-sm md:text-base lg:text-base text-center">Integrasi Media Sosial<br>
-                            <span class="font-normal">
+                        class="bg-slate-100 dark:bg-slate-800 dark:text-white p-3 md:p-4 lg:p-5 w-60 md:-70 lg:w-80 rounded-lg flex flex-col items-center shadow-xl">                                               
+                        <i class="fa-solid fa-hashtag w-6 md:w-7 lg:w-8 mb-4 text-purple dark:text-orange-500" style="transform: scale(1.5);"></i>
+                        <p class="font-bold text-sm md:text-base lg:text-base text-center text-purple dark:text-orange-500">Integrasi Media Sosial<br>
+                            <span class="font-normal text-dark dark:text-white">
                                 Menyediakan fitur untuk menghubungkan dan menampilkan akun media sosial langsung di halaman Anda.
                             </span>
                         </p>
                     </div>
                     <div class="md:col-span-2 md:flex md:justify-center lg:col-span-1 lg:col-start-3">
                         <div data-aos="zoom-in" data-aos-delay="400"
-                            class="bg-light dark:bg-slate-800 dark:text-white p-3 md:p-4 lg:p-5 w-60 md:-70 lg:w-80 rounded-lg flex flex-col items-center shadow-xl">
+                            class="bg-slate-100 dark:bg-slate-800 dark:text-white p-3 md:p-4 lg:p-5 w-60 md:-70 lg:w-80 rounded-lg flex flex-col items-center shadow-xl">
                             <i class="fa-solid fa-gear w-6 md:w-7 lg:w-8 mb-4 text-purple dark:text-orange-500" style="transform: scale(1.5);"></i>
-                            <p class="font-bold text-sm md:text-base lg:text-base text-center">Kustomisasi Link<br>
-                                <span class="font-normal">
+                            <p class="font-bold text-sm md:text-base lg:text-base text-center text-purple dark:text-orange-500">Kustomisasi Link<br>
+                                <span class="font-normal text-dark dark:text-white">
                                     Membuat dan mengelola tautan dinamis dengan mudah sesuai kebutuhan pengguna.
                                 </span>
                             </p>

@@ -44,18 +44,17 @@
                     <input type="file" name="profile" id="profileFileInput" class="hidden" accept="image/*"
                         oninput="previewImage('profileFileInput', 'profilePreview')">
                     {{-- Button Style --}}
-                    <input type="text" name="btnstyle_input" id="btnStyleInput"
+                    <input class="hidden" type="text" name="btnstyle_input" id="btnStyleInput"
                         value="{{ $customization->display_btn_style }}">
-                    <input type="text" name="btnprops_input" id="btnPropInput"
+                    <input class="hidden" type="text" name="btnprops_input" id="btnPropInput"
                         value="{{ $customization->display_btn_prop }}">
                     {{-- Link Sosmed --}}
-                    <div class="" id="socialButtonsContainer"></div>
+                    <div class="hidden" id="socialButtonsContainer"></div>
                     {{-- Link Tombol --}}
-                    <div class="" id="linkButtonsContainer"></div>
+                    <div class="hidden" id="linkButtonsContainer"></div>
                     <button class="p-2 px-4 font-bold text-white bg-green-500 rounded-lg" type="submit"
                         onclick="setProps()">Save Previews</button>
-                </form>
-                <button onclick="setProps()">test</button>
+                </form>            
             </div>
         </x-customization-box>
     </div>
@@ -183,11 +182,7 @@
 
         //Popup Custom Warna
         function openWarna() {
-            document.getElementById('modalWarna').classList.remove('hidden');
-        }
-
-        function closeWarna() {
-            document.getElementById('modalWarna').classList.add('hidden');
+            document.getElementById('modalWarna').classList.toggle('hidden');
         }
         document.getElementById('font-c').addEventListener('input', function() {
             const fontColor = this.value;
@@ -678,14 +673,17 @@
             });
         }
 
-        function showhide(elementId) {
+        function showhide(elementId, btnId) {
             const element = document.getElementById(elementId);
+            const btn = document.getElementById(btnId);
             if (element.classList.contains('-translate-y-full')) {
                 element.classList.remove('-translate-y-full','h-0', 'opacity-0');
                 element.classList.add('translate-y-0', 'opacity-100');
+                btn.classList.add('rotate-180');
             } else {
                 element.classList.remove('translate-y-0', 'opacity-100');
                 element.classList.add('-translate-y-full','h-0', 'opacity-0');
+                btn.classList.remove('rotate-180');
             }
         }
     </script>

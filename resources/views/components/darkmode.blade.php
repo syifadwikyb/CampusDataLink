@@ -1,7 +1,7 @@
 <div class="container">
     <!-- Dark mode toggle button -->
     <input type="checkbox" id="dark-toggle" class="hidden">
-    <label for="dark-toggle" class="fixed bottom-4 right-4 z-[9999] p-5 rounded-full bg-slate-800 dark:bg-white appearance-none animate-bounce">
+    <label for="dark-toggle" class="fixed bottom-4 right-4 z-[9999] p-5 rounded-full bg-slate-800 dark:bg-white appearance-none animate-bounce cursor-pointer">
         <i id="sun-icon" class="block text-yellow-500 fas fa-sun"></i>
         <i id="moon-icon" class="block text-abu-800 fas fa-moon"></i>
     </label>

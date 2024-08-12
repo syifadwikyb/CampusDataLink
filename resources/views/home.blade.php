@@ -55,8 +55,8 @@
     <!-- resources/views/home.blade.php -->
     <div class="container mx-auto">
         {{-- <h1>Welcome, {{ Auth::user()->name }}</h1> --}}
-
-        @if ($customizations)
+        <div class="min-h-[60vh]">
+            @if ($customizations)
             <div
                 class="mx-auto overflow-hidden rounded-3xl border-8 border-black bg-black w-[420px] xl:w-[420px] h-[900px] mt-6 xl:mt-0">
                 <h1 class="sticky top-0 w-full px-3 text-right text-white bg-gray-400 rounded-t-2xl">5G ᯤ | 50%</h1>
@@ -105,9 +105,11 @@
                     </div>
                 </div>
             </div>
-        @else
+            @else
             <p class="text-dark dark:text-white">Anda Belum Memiliki Halaman</p>
         @endif
+        </div>
+        
     </div>
 
 </body>
