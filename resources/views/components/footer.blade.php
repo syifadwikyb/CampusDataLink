@@ -1,4 +1,4 @@
-<div class="mt-3 bg-slate-900 dark:bg-slate-800">
+<div class="bg-slate-900 dark:bg-slate-800">
     <div class="mx-auto border-y border-white text-white">
         <div class="container mx-auto">
             <div class="justify-between p-5 md:flex lg:flex">
@@ -34,9 +34,8 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254.73629038328087!2d110.46113364753015!3d-7.038510311284964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70894e88615ef1%3A0x40991ad781fce8e9!2sCampus%20World!5e0!3m2!1sid!2sid!4v1720837925114!5m2!1sid!2sid"
                     style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <p class="font-montserrat text-center font-bold text-xs md:text-sm lg:text-base">© 2024, by Campus Digital
-            </p>
+            </div>        
         </div>
     </div>
+    <p class="font-montserrat text-center text-white font-bold text-xs md:text-sm lg:text-sm">©2024, by Campus Digital</p>
 </div>

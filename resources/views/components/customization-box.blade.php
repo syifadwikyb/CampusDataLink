@@ -28,7 +28,7 @@
         /* Default color for .fill1 */
     }
 </style>
-<div class="flex-grow max-w-full p-8 customizations">
+<div class="flex-grow max-w-full px-8 customizations">
     {{-- Link Profil --}}
     <div class="mx-auto mb-3">
         <div class="p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
@@ -52,8 +52,8 @@
                     class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 dark:border-orange-300 rounded-lg h-14">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <h1 class="hidden mx-auto my-auto font-light text-center text-gray-400 md:block">Ukuran
-                                optimal 800 x 400px, 1:2</h1>
+                            <p class="hidden text-sm mx-auto my-auto font-light text-center text-gray-400 md:block">Ukuran
+                                optimal 800 x 400px, 1:2</p>
                             <label for="bannerFileInput"
                                 class="w-full p-2 text-center text-white bg-purple dark:bg-orange-500 rounded cursor-pointer md:w-auto">Upload</label>
                         </div>
@@ -68,8 +68,8 @@
                     class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 dark:border-orange-300 rounded-lg h-14">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <h1 class="hidden mx-auto my-auto font-light text-center text-gray-400 md:block">Ukuran
-                                optimal 400 x 400px, 1:1</h1>
+                            <p class="hidden text-sm mx-auto my-auto font-light text-center text-gray-400 md:block">Ukuran
+                                optimal 400 x 400px, 1:1</p>
                             <label for="profileFileInput"
                                 class="w-full p-2 text-center text-white bg-purple dark:bg-orange-500 rounded cursor-pointer md:w-auto">Upload</label>
                         </div>
@@ -106,7 +106,7 @@
             <div class="flex items-center justify-between">
                 <h3 class="font-bold text-dark dark:text-white">Social Media</h3>
                 <button
-                    class="z-50 p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                    class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
                     id="socialmediapropsbtn" onclick="showhide('socialmediapropsdiv','socialmediapropsbtn')"></button>
             </div>
             <div class="px-3">
@@ -207,7 +207,7 @@
             <div class="flex items-center justify-between">
                 <h3 class="font-bold text-dark dark:text-white">Button Links</h3>
                 <button
-                    class="z-50 p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                    class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
                     id="linkpropsbtn" onclick="showhide('linkpropsdiv','linkpropsbtn')"></button>
             </div>
             <div class="px-3">
@@ -256,7 +256,7 @@
         <div class="flex items-center justify-between ">
             <h3 class="font-bold text-dark dark:text-white">Background</h3>
             <button
-                class="z-50 p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
                 id="bgpropsbtn" onclick="showhide('bgpropsdiv','bgpropsbtn')"></button>
         </div>
         <div class="px-3">
@@ -332,7 +332,7 @@
             <div class="flex items-center justify-between">
                 <h3 class="font-bold text-dark dark:text-white">Font</h3>
                 <button
-                    class="z-50 p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                    class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
                     id="fontpropsbtn" onclick="showhide('fontpropsdiv','fontpropsbtn')"></button>
             </div>
             <div class="px-3">
@@ -384,7 +384,7 @@
             <div class="flex items-center justify-between">
                 <h3 class="font-bold text-dark dark:text-white">Button Properties</h3>
                 <button
-                    class="z-50 p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                    class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
                     id="btnpropsbtn" onclick="showhide('btnpropsdiv','btnpropsbtn')">
                 </button>
             </div>
@@ -487,3 +487,5 @@
         {{ $slot }}
     </div>
 </div>
+@vite('resources/js/dropdown.js')
+@vite('resources/js/header.js')

@@ -55,11 +55,10 @@
     <!-- resources/views/home.blade.php -->
     <div class="container mx-auto">
         {{-- <h1>Welcome, {{ Auth::user()->name }}</h1> --}}
-        <div class="min-h-[60vh]">
+        <div class="h-[155vh]">
             @if ($customizations)
             <div
                 class="mx-auto overflow-hidden rounded-3xl border-8 border-black bg-black w-[420px] xl:w-[420px] h-[900px] mt-6 xl:mt-0">
-                <h1 class="sticky top-0 w-full px-3 text-right text-white bg-gray-400 rounded-t-2xl">5G ᯤ | 50%</h1>
                 <div class="{{ $customizations->display_preview_class }}"
                     style="{{ $customizations->display_preview_bg }} {{ $customizations->display_preview_fc }}"
                     id="displayPreview">
@@ -108,13 +107,11 @@
             @else
             <p class="text-dark dark:text-white">Anda Belum Memiliki Halaman</p>
         @endif
-        </div>
-        
+        </div>        
     </div>
-
+    <x-footer></x-footer>
 </body>
 <x-darkmode></x-darkmode>
-<x-footer></x-footer>
 @vite('resources/js/dropdown.js')
 @vite('resources/js/header.js')
 </html>
