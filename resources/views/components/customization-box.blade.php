@@ -31,32 +31,32 @@
 <div class="flex-grow max-w-full px-8 customizations">
     {{-- Link Profil --}}
     <div class="mx-auto mb-3">
-        <div class="p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
-            <div class="flex-none md:flex lg:flex items-center justify-between">
+        <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
+            <div class="items-center justify-between flex-none md:flex lg:flex">
                 <h3 class="font-bold text-dark dark:text-white">Custom Link</h3>
                 <div class="flex items-center my-auto mb-0 space-x-2 rounded-lg h-11">
                     <p class="font-bold text-dark dark:text-white">cdlink.id/</p>
                     <textarea
-                        class="flex-grow w-full h-full max-h-full min-h-full p-2 border text-dark dark:text-white bg-white dark:bg-slate-900 border-gray-300 dark:border-orange-300 rounded-lg"
+                        class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
                         id="slugInput" placeholder="linksaya">{{ $customizations->slug }}</textarea>
                 </div>
             </div>
         </div>
     </div>
     {{-- Gambar --}}
-    <div class="flex mb-3 space-x-6 p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
+    <div class="flex p-3 mb-3 space-x-6 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
         <div class="w-1/2">
             <h3 class="font-bold text-dark dark:text-white">Banner</h3>
             <div class="p-3">
                 <div
-                    class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 dark:border-orange-300 rounded-lg h-14">
+                    class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 rounded-lg dark:border-orange-300 h-14">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <p class="hidden text-sm mx-auto my-auto font-light text-center text-gray-400 md:block">
+                            <p class="hidden mx-auto my-auto text-sm font-light text-center text-gray-400 md:block">
                                 Ukuran
                                 optimal 800 x 400px, 1:2</p>
                             <label for="bannerFileInput"
-                                class="w-full p-2 text-center text-white bg-purple dark:bg-orange-500 rounded cursor-pointer md:w-auto">Upload</label>
+                                class="w-full p-2 text-center text-white rounded cursor-pointer bg-purple dark:bg-orange-500 md:w-auto">Upload</label>
                         </div>
                     </div>
                 </div>
@@ -66,14 +66,14 @@
             <h3 class="font-bold text-dark dark:text-white">Profile</h3>
             <div class="p-3">
                 <div
-                    class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 dark:border-orange-300 rounded-lg h-14">
+                    class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 rounded-lg dark:border-orange-300 h-14">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <p class="hidden text-sm mx-auto my-auto font-light text-center text-gray-400 md:block">
+                            <p class="hidden mx-auto my-auto text-sm font-light text-center text-gray-400 md:block">
                                 Ukuran
                                 optimal 400 x 400px, 1:1</p>
                             <label for="profileFileInput"
-                                class="w-full p-2 text-center text-white bg-purple dark:bg-orange-500 rounded cursor-pointer md:w-auto">Upload</label>
+                                class="w-full p-2 text-center text-white rounded cursor-pointer bg-purple dark:bg-orange-500 md:w-auto">Upload</label>
                         </div>
                     </div>
                 </div>
@@ -81,34 +81,34 @@
         </div>
     </div>
     {{-- Judul --}}
-    <div class="flex-grow mb-3 p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
+    <div class="flex-grow p-3 mb-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
         <h3 class="font-bold text-dark dark:text-white">Title</h3>
         <div class="p-3">
             <div class="flex mb-0 space-x-2 h-11">
                 <textarea maxlength="100"
-                    class="flex-grow w-full h-full max-h-full min-h-full p-2 border text-dark dark:text-white bg-white dark:bg-slate-900 border-gray-300 dark:border-orange-300 rounded-lg"
+                    class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
                     id="titleInput" placeholder="Masukkan Teks" oninput="updateTitle()">{{ $customizations->title }}</textarea>
             </div>
         </div>
     </div>
     {{-- Tentang --}}
-    <div class="flex-grow mb-3 p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
+    <div class="flex-grow p-3 mb-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
         <h3 class="font-bold text-dark dark:text-white">About</h3>
         <div class="p-3">
             <div class="flex mb-0 space-x-2 rounded-lg h-28">
                 <textarea
-                    class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-transparent border text-dark dark:text-white bg-white dark:bg-slate-900 border-gray-300 dark:border-orange-300 rounded-lg"
+                    class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-transparent bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
                     id="aboutInput" placeholder="Masukkan Teks" oninput="updateAbout()">{{ $customizations->about }}</textarea>
             </div>
         </div>
     </div>
     {{-- Link Medsos --}}
     <div class="flex-grow mb-3">
-        <div class="p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg">
+        <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800">
             <div class="flex items-center justify-between">
                 <h3 class="font-bold text-dark dark:text-white">Social Media</h3>
                 <button
-                    class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                    class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="socialmediapropsbtn" onclick="showhide('socialmediapropsdiv','socialmediapropsbtn')"></button>
             </div>
             <div class="px-3">
@@ -117,10 +117,10 @@
                         class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
                         <div class="grid grid-cols-6 mb-2 space-x-2 sm:grid-cols-10 lg:grid-cols-cb">
                             <input type="text" id="newLinkInput"
-                                class="flex-grow h-full col-span-3 p-2 bg-transparent border text-dark dark:text-white border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-5 lg:col-span-10"
+                                class="flex-grow h-full col-span-3 p-2 bg-transparent border border-gray-300 rounded-lg text-dark dark:text-white dark:border-orange-300 sm:col-span-5 lg:col-span-10"
                                 placeholder="Enter Link">
                             <select id="newIconSelect"
-                                class="flex-grow h-full col-span-2 p-2 bg-transparent border text-dark dark:text-orange-500 border-gray-300 dark:border-orange-300 dark:bg-slate-800 rounded-lg sm:col-span-4 lg:col-span-5">
+                                class="flex-grow h-full col-span-2 p-2 bg-transparent border border-gray-300 rounded-lg text-dark dark:text-orange-500 dark:border-orange-300 dark:bg-slate-800 sm:col-span-4 lg:col-span-5">
                                 <option value="" disabled selected>Select Icon</option>
                                 <option value="bi-envelope-fill">Envelope</option>
                                 <option value="bi-whatsapp">WhatsApp</option>
@@ -135,7 +135,7 @@
                             </select>
                             <button onclick="generateLinkInput()">
                                 <i
-                                    class="block py-2 text-white bg-purple dark:bg-orange-500 rounded-lg bi bi-plus-lg"></i>
+                                    class="block py-2 text-white rounded-lg bg-purple dark:bg-orange-500 bi bi-plus-lg"></i>
                             </button>
                         </div>
                         <div id="linkInputs" class="mt-2 space-y-2 text-dark dark:text-orange-500">
@@ -143,7 +143,7 @@
                                 <div class="grid grid-cols-6 mb-2 space-x-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item"
                                     data-id="{{ $index }}">
                                     <input type="text"
-                                        class="flex-grow h-full col-span-3 p-2 bg-transparent border border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-5 lg:col-span-10 bg-white dark:bg-slate-900"
+                                        class="flex-grow h-full col-span-3 p-2 bg-transparent bg-white border border-gray-300 rounded-lg dark:border-orange-300 sm:col-span-5 lg:col-span-10 dark:bg-slate-900"
                                         value="{{ $socialButton->url }}" data-icon="{{ $socialButton->icon }}"
                                         oninput="updateLink({{ $index }})">
                                     <?php
@@ -154,7 +154,7 @@
                                     }
                                     ?>
                                     <select id="iconDropdown"
-                                        class="flex-grow h-full col-span-2 p-2 text-dark dark:text-orange-500 bg-white dark:bg-slate-900 border border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-4 lg:col-span-5 icon-select"
+                                        class="flex-grow h-full col-span-2 p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-orange-500 dark:bg-slate-900 dark:border-orange-300 sm:col-span-4 lg:col-span-5 icon-select"
                                         onchange="updateLink({{ $index }})">
                                         <option value="bi-envelope-fill"
                                             {{ $iconClass === 'bi-envelope-fill' ? 'selected' : '' }}>
@@ -205,11 +205,11 @@
     </div>
     {{-- Tombol Link  --}}
     <div class="mx-auto mb-3">
-        <div class="p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
+        <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
             <div class="flex items-center justify-between">
                 <h3 class="font-bold text-dark dark:text-white">Button Links</h3>
                 <button
-                    class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                    class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="linkpropsbtn" onclick="showhide('linkpropsdiv','linkpropsbtn')"></button>
             </div>
             <div class="px-3">
@@ -218,15 +218,15 @@
                         class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
                         <div class="grid grid-cols-6 mb-2 space-x-2 sm:grid-cols-10 lg:grid-cols-cb">
                             <input type="text"
-                                class="flex-grow h-full col-span-2 p-2 bg-transparent border text-dark dark:text-white border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-4 lg:col-span-7"
+                                class="flex-grow h-full col-span-2 p-2 bg-transparent border border-gray-300 rounded-lg text-dark dark:text-white dark:border-orange-300 sm:col-span-4 lg:col-span-7"
                                 placeholder="Enter text" id="textInput">
                             <input type="text"
-                                class="flex-grow h-full col-span-3 p-2 bg-transparent border text-dark dark:text-white border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-5 lg:col-span-8"
+                                class="flex-grow h-full col-span-3 p-2 bg-transparent border border-gray-300 rounded-lg text-dark dark:text-white dark:border-orange-300 sm:col-span-5 lg:col-span-8"
                                 placeholder="Enter link" id="urlInput">
                             <button class="items-center justify-center flex-grow col-span-1"
                                 onclick="addLinkButton()">
                                 <i
-                                    class="block py-2 text-white bg-purple dark:bg-orange-500 rounded-lg bi bi-plus-lg"></i>
+                                    class="block py-2 text-white rounded-lg bg-purple dark:bg-orange-500 bi bi-plus-lg"></i>
                             </button>
                         </div>
                         <div id="linkContainers" class="space-y-2 text-dark dark:text-orange-500">
@@ -234,11 +234,11 @@
                                 <div class="grid grid-cols-6 space-x-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item"
                                     data-id="{{ $index }}">
                                     <input type="text"
-                                        class="flex-grow col-span-2 p-2 border border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-4 lg:col-span-7 text-dark dark:text-orange-500 bg-white dark:bg-slate-900"
+                                        class="flex-grow col-span-2 p-2 bg-white border border-gray-300 rounded-lg dark:border-orange-300 sm:col-span-4 lg:col-span-7 text-dark dark:text-orange-500 dark:bg-slate-900"
                                         value="{{ $linkButton->text }}" data-url="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <input type="text"
-                                        class="flex-grow col-span-3 p-2 border border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-5 lg:col-span-8 text-dark dark:text-orange-500 bg-white dark:bg-slate-900"
+                                        class="flex-grow col-span-3 p-2 bg-white border border-gray-300 rounded-lg dark:border-orange-300 sm:col-span-5 lg:col-span-8 text-dark dark:text-orange-500 dark:bg-slate-900"
                                         value="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <button class="items-center justify-center flex-grow col-span-1"
@@ -254,11 +254,11 @@
         </div>
     </div>
     {{-- Background --}}
-    <div class="mx-auto mb-3 p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
+    <div class="p-3 mx-auto mb-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
         <div class="flex items-center justify-between ">
             <h3 class="font-bold text-dark dark:text-white">Background</h3>
             <button
-                class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                 id="bgpropsbtn" onclick="showhide('bgpropsdiv','bgpropsbtn')"></button>
         </div>
         <div class="px-3">
@@ -275,33 +275,33 @@
                         <x-button class="w-full py-2 bg-gradient-to-tr from-blue-700 to-sky-500"
                             onclick="changeBackground('linear-gradient(to top right, #1C3D5A, #6FB1FC'), changeFontBlack()">
                             Blue-Sky </x-button>
+                        <x-button class="w-full py-2 bg-gradient-to-tr from-yellow-500 to-orange-500"
+                            onclick="changeBackground('linear-gradient(to top right, #eab308, #f97316'), changeFontWhite()">
+                            Yellow-Orange </x-button>
                         <x-button class="w-full py-2 bg-gradient-to-tr from-gray-300 to-white"
                             onclick="changeBackground('linear-gradient(to top right, #CBD5E0, #FFFFFF'), changeFontBlack()">
                             Gray-White </x-button>
                         <x-button class="w-full py-2 text-white bg-gradient-to-tr from-gray-900 to-slate-700"
                             onclick="changeBackground('linear-gradient(to top right, #1F2937, #6B7280'), changeFontWhite()">
                             Black-Gray </x-button>
-                        <x-button class="w-full py-2 text-white bg-gradient-to-tr from-orange-500 to-green-500"
-                            onclick="changeBackground('linear-gradient(to top right, #d06925, #31b941'), changeFontWhite()">
-                            Red-Green </x-button>
                         {{-- <x-button
                             class="w-full py-2 bg-gradient-to-tr from-purple to-purple dark:from-orange-500 dark:to-orange-500" id="custombgbtn"
                             onclick="openWarna()">Custom </x-button> --}}
                     </div>
                     <p class="text-dark dark:text-white">Atau</p>
                     <div id="modalWarna" class="items-center justify-center mt-6 bg-opacity-75">
-                        <div class="flex-none md:flex lg:flex justify-between">
+                        <div class="justify-between flex-none md:flex lg:flex">
                             <div>
                                 <label for="grad-1" class="font-semibold text-dark dark:text-white">Custom
                                     Gradient</label>
                                 <div class="flex items-center gap-2">
                                     <div class="flex items-center space-x-2">
-                                        <input class="w-28 h-12 bg-transparent" type="color" id="grad-1"
+                                        <input class="h-12 bg-transparent w-28" type="color" id="grad-1"
                                             oninput="applyCustomBackground()">
                                         <p id="color1" class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color1</p>
                                     </div>
                                     <div class="flex items-center space-x-2">
-                                        <input class="w-28 h-12 bg-transparent" type="color" id="grad-2"
+                                        <input class="h-12 bg-transparent w-28" type="color" id="grad-2"
                                             oninput="applyCustomBackground()">
                                         <p id="color2" class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color2</p>
                                     </div>
@@ -332,11 +332,11 @@
     </div>
     {{-- Font --}}
     <div class="mx-auto mb-3">
-        <div class="p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
+        <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
             <div class="flex items-center justify-between">
                 <h3 class="font-bold text-dark dark:text-white">Font</h3>
                 <button
-                    class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                    class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="fontpropsbtn" onclick="showhide('fontpropsdiv','fontpropsbtn')"></button>
             </div>
             <div class="px-3">
@@ -380,7 +380,7 @@
                         <div class="mt-4">
                             <label for="font-c" class="font-semibold text-dark dark:text-white">Font Color</label>
                             <div class="flex items-center mt-2 space-x-2">
-                                <input type="color" id="font-c" class="w-28 h-12 bg-transparent">
+                                <input type="color" id="font-c" class="h-12 bg-transparent w-28">
                                 <p id="font-color-hex" class="w-1/6 text-dark dark:text-white">#color</p>
                             </div>
                         </div>
@@ -391,11 +391,11 @@
     </div>
     {{-- Button --}}
     <div class="mx-auto mb-3">
-        <div class="p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg min-h-16">
+        <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
             <div class="flex items-center justify-between">
                 <h3 class="font-bold text-dark dark:text-white">Button Properties</h3>
                 <button
-                    class="p-2 px-6 ml-1 transition-transform transform dark:text-white duration-300 ease-in-out bi bi-chevron-down"
+                    class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="btnpropsbtn" onclick="showhide('btnpropsdiv','btnpropsbtn')">
                 </button>
             </div>
@@ -472,7 +472,7 @@
                             </div>
                         </button>
                     </div>
-                    <div class="form-container px-3">
+                    <div class="px-3 form-container">
                         <label for="grad-dir-btn"
                         class="block mb-2 font-semibold text-dark dark:text-white">Button
                         Type:</label>                        
@@ -493,11 +493,11 @@
                             </div>
                             <div>
                                 <label for="btnf2">Fill Color 0:</label>
-                                <input type="color" id="btnf2" value="#ffffff" class="w-28 h-12 bg-transparent" oninput="changebtnclr()">
+                                <input type="color" id="btnf2" value="#ffffff" class="h-12 bg-transparent w-28" oninput="changebtnclr()">
                             </div>
                             <div>
                                 <label for="btnf1">Fill Color 1:</label>
-                                <input type="color" id="btnf1" value="#ffffff" class="w-28 h-12 bg-transparent" oninput="changebtnclr()">
+                                <input type="color" id="btnf1" value="#ffffff" class="h-12 bg-transparent w-28" oninput="changebtnclr()">
                             </div>
                         </div>
                     </div>
