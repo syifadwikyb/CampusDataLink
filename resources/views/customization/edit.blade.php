@@ -11,25 +11,25 @@
     @vite('resources/css/app.css')
     <title>Customization</title>
 </head>
-<div class="sticky h-auto top-0 z-50 w-auto bg-white dark:bg-slate-900 transition-all duration-300">
+<div class="sticky top-0 z-50 w-auto h-auto transition-all duration-300 bg-white dark:bg-slate-900">
     <div class="header">
-        <div class="container mx-auto flex justify-between items-center p-8 dark:text-white">
+        <div class="container flex items-center justify-between p-8 mx-auto dark:text-white">
             <div>
                 <p>Logo</p>
             </div>            
             <div class="relative">
-                <button id="bars-icon" class="fas fa-user-circle text-4xl focus:outline-none"></button>
+                <button id="bars-icon" class="text-4xl fas fa-user-circle focus:outline-none"></button>
                 <div id="dropdown-menu"
-                    class="hidden absolute right-0 mt-8 w-48 bg-light dark:bg-slate-700 rounded-lg shadow-lg z-10">
+                    class="absolute right-0 z-10 hidden w-48 mt-8 rounded-lg shadow-lg bg-light dark:bg-slate-700">
                     <a href="#"
-                        class="flex rounded-lg py-2 w-full justify-center font-bold text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Profile</a>
+                        class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Profile</a>
                     <a href="{{ route('changepass') }}"
-                        class="flex rounded-lg py-2 w-full justify-center font-bold text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Change
+                        class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Change
                         Password</a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button
-                            class="flex rounded-lg py-2 w-full justify-center font-bold text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500"
+                            class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500"
                             type="submit">Logout</button>
                     </form>
                 </div>
@@ -609,20 +609,27 @@
             // Create the inner div with styles from an example button
             // Try to find the button element
             const btnExample = document.querySelector('.btnstyle');
+            
 
             // Create a new div element
             const innerDiv = document.createElement('div');
 
             // Check if btnExample is found
             if (btnExample) {
-                // If btnExample is found, copy its properties
                 innerDiv.className = btnExample.className;
-                innerDiv.style.backgroundImage = btnExample.style.backgroundImage;
+                const btnExampleStyle = btnExample.style.backgroundImage;
+                if (btnExampleStyle){
+                    innerDiv.style.backgroundImage = btnExample.style.backgroundImage;
+                } else {
+                    innerDiv.style.backgroundImage =
+                    'linear-gradient(45deg, #666666, #999999)';
+                }                
             } else {
                 // If btnExample is not found, set default values
-                innerDiv.className = 'box w-full -mt-[86.6px] btnstyle'; // Replace with your default class
+                innerDiv.className = 'box mb-2 -mt-[86.6px] btnstyle'; // Replace with your default class
+                // Replace with your default background image
                 innerDiv.style.backgroundImage =
-                    'linear-gradient(45deg, #66666, #99999)'; // Replace with your default background image
+                    'linear-gradient(45deg, #666666, #999999)';
             }
 
             // Optionally, append innerDiv to the document body or another element
@@ -705,6 +712,7 @@
             buttons.forEach(button => {
                 button.style.backgroundImage = `linear-gradient(${direction}, ${grad1}, ${grad2})`;
             });
+            document.getElementById('btnStyleInput').value= `linear-gradient(${direction}, ${grad1}, ${grad2})`;
         }
 
         function showhide(elementId, btnId) {
