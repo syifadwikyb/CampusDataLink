@@ -87,7 +87,7 @@
         </div>
         {{-- Area Preview --}}
         <div class="">
-            <div class="sticky top-0 w-full p-4 bg-white dark:bg-slate-900 text-l xl:w-1/3" style="min-height:60vh">
+            <div class="sticky top-0 w-full p-4 bg-white dark:bg-slate-900 text-l xl:w-1/3">
                 <div class="mx-auto overflow-hidden rounded-3xl border-8 border-black bg-black w-[420px] xl:w-[420px] h-[900px] mt-6 xl:mt-0"
                     style="z-index: -10">
                     {{-- Container Utama --}}
