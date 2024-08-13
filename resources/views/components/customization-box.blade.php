@@ -105,12 +105,12 @@
     {{-- Link Medsos --}}
     <div class="flex-grow mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800">
-            <div class="flex items-center justify-between">
+            <button class="flex items-center justify-between w-[100%]" onclick="showhide('socialmediapropsdiv','socialmediapropsbtn')">
                 <h3 class="font-bold text-dark dark:text-white">Social Media</h3>
-                <button
-                    class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
-                    id="socialmediapropsbtn" onclick="showhide('socialmediapropsdiv','socialmediapropsbtn')"></button>
-            </div>
+                <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
+                    id="socialmediapropsbtn">
+                </p>
+            </button>
             <div class="px-3">
                 <div class="overflow-hidden">
                     <div id="socialmediapropsdiv"
@@ -206,12 +206,12 @@
     {{-- Tombol Link  --}}
     <div class="mx-auto mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-            <div class="flex items-center justify-between">
-                <h3 class="font-bold text-dark dark:text-white">Button Links</h3>
-                <button
-                    class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
-                    id="linkpropsbtn" onclick="showhide('linkpropsdiv','linkpropsbtn')"></button>
-            </div>
+            <button class="flex items-center justify-between w-[100%]" onclick="showhide('linkpropsdiv','linkpropsbtn')">
+                <h3 class="font-bold text-dark dark:text-white">Button Link</h3>
+                <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
+                    id="linkpropsbtn">
+                </p>
+            </button>
             <div class="px-3">
                 <div class="overflow-hidden">
                     <div id="linkpropsdiv"
@@ -255,12 +255,12 @@
     </div>
     {{-- Background --}}
     <div class="p-3 mx-auto mb-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-        <div class="flex items-center justify-between ">
+        <button class="flex items-center justify-between w-[100%]" onclick="showhide('bgpropsdiv','bgpropsbtn')">
             <h3 class="font-bold text-dark dark:text-white">Background</h3>
-            <button
-                class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
-                id="bgpropsbtn" onclick="showhide('bgpropsdiv','bgpropsbtn')"></button>
-        </div>
+            <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
+                id="bgpropsbtn">
+            </p>
+        </button>
         <div class="px-3">
             <div class="overflow-hidden">
                 <div id="bgpropsdiv"
@@ -298,12 +298,16 @@
                                     <div class="flex items-center space-x-2">
                                         <input class="h-12 bg-transparent w-28" type="color" id="grad-1"
                                             oninput="applyCustomBackground()">
-                                        <p id="color1" class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color1</p>
+                                        <p id="color1"
+                                            class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color1
+                                        </p>
                                     </div>
                                     <div class="flex items-center space-x-2">
                                         <input class="h-12 bg-transparent w-28" type="color" id="grad-2"
                                             oninput="applyCustomBackground()">
-                                        <p id="color2" class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color2</p>
+                                        <p id="color2"
+                                            class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color2
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -333,12 +337,12 @@
     {{-- Font --}}
     <div class="mx-auto mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-            <div class="flex items-center justify-between">
+            <button class="flex items-center justify-between w-[100%]" onclick="showhide('fontpropsdiv','fontpropsbtn')">
                 <h3 class="font-bold text-dark dark:text-white">Font</h3>
-                <button
-                    class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
-                    id="fontpropsbtn" onclick="showhide('fontpropsdiv','fontpropsbtn')"></button>
-            </div>
+                <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
+                    id="fontpropsbtn">
+                </p>
+            </button>
             <div class="px-3">
                 <div class="overflow-hidden">
                     <div id="fontpropsdiv"
@@ -392,17 +396,16 @@
     {{-- Button --}}
     <div class="mx-auto mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-            <div class="flex items-center justify-between">
+            <button class="flex items-center justify-between w-[100%]" onclick="showhide('btnpropsdiv','btnpropsbtn')">
                 <h3 class="font-bold text-dark dark:text-white">Button Properties</h3>
-                <button
-                    class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
-                    id="btnpropsbtn" onclick="showhide('btnpropsdiv','btnpropsbtn')">
-                </button>
-            </div>
+                <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
+                    id="btnpropsbtn">
+                </p>
+            </button>
             <div class="overflow-hidden">
                 <div id="btnpropsdiv"
                     class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
-                    <div class="grid items-center grid-cols-1 p-4 mx-auto -gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="grid items-center grid-cols-1 p-4 mx-auto -gap-4 sm:grid-cols-2 lg:grid-cols-2">
                         <button class="w-full scale-75" onclick="changebtnstyle('box')">
                             <div class="w-full box" style="background: linear-gradient(90deg, #ababab, #dddddd)">
                             </div>
@@ -467,15 +470,10 @@
                             <div class="w-full boxro" style="background: linear-gradient(90deg, #ababab, #dddddd)">
                             </div>
                         </button>
-                        <button class="w-full scale-75" onclick="changebtnstyle('boxrb')">
-                            <div class="w-full boxrb" style="background: linear-gradient(90deg, #ababab, #dddddd)">
-                            </div>
-                        </button>
                     </div>
                     <div class="px-3 form-container">
-                        <label for="grad-dir-btn"
-                        class="block mb-2 font-semibold text-dark dark:text-white">Button
-                        Type:</label>                        
+                        <label for="grad-dir-btn" class="block mb-2 font-semibold text-dark dark:text-white">Button
+                            Type:</label>
                         <div class="flex items-center">
                             <div>
                                 <select id="grad-dir-btn"
@@ -493,11 +491,13 @@
                             </div>
                             <div>
                                 <label for="btnf2">Fill Color 0:</label>
-                                <input type="color" id="btnf2" value="#ffffff" class="h-12 bg-transparent w-28" oninput="changebtnclr()">
+                                <input type="color" id="btnf2" value="#ffffff"
+                                    class="h-12 bg-transparent w-28" oninput="changebtnclr()">
                             </div>
                             <div>
                                 <label for="btnf1">Fill Color 1:</label>
-                                <input type="color" id="btnf1" value="#ffffff" class="h-12 bg-transparent w-28" oninput="changebtnclr()">
+                                <input type="color" id="btnf1" value="#ffffff"
+                                    class="h-12 bg-transparent w-28" oninput="changebtnclr()">
                             </div>
                         </div>
                     </div>
