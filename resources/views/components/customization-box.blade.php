@@ -52,7 +52,8 @@
                     class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 dark:border-orange-300 rounded-lg h-14">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <p class="hidden text-sm mx-auto my-auto font-light text-center text-gray-400 md:block">Ukuran
+                            <p class="hidden text-sm mx-auto my-auto font-light text-center text-gray-400 md:block">
+                                Ukuran
                                 optimal 800 x 400px, 1:2</p>
                             <label for="bannerFileInput"
                                 class="w-full p-2 text-center text-white bg-purple dark:bg-orange-500 rounded cursor-pointer md:w-auto">Upload</label>
@@ -68,7 +69,8 @@
                     class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 dark:border-orange-300 rounded-lg h-14">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <p class="hidden text-sm mx-auto my-auto font-light text-center text-gray-400 md:block">Ukuran
+                            <p class="hidden text-sm mx-auto my-auto font-light text-center text-gray-400 md:block">
+                                Ukuran
                                 optimal 400 x 400px, 1:1</p>
                             <label for="profileFileInput"
                                 class="w-full p-2 text-center text-white bg-purple dark:bg-orange-500 rounded cursor-pointer md:w-auto">Upload</label>
@@ -118,7 +120,7 @@
                                 class="flex-grow h-full col-span-3 p-2 bg-transparent border text-dark dark:text-white border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-5 lg:col-span-10"
                                 placeholder="Enter Link">
                             <select id="newIconSelect"
-                                class="flex-grow h-full col-span-2 p-2 bg-transparent border text-dark dark:text-white border-gray-300 dark:border-orange-300 rounded-lg sm:col-span-4 lg:col-span-5">
+                                class="flex-grow h-full col-span-2 p-2 bg-transparent border text-dark dark:text-orange-500 border-gray-300 dark:border-orange-300 dark:bg-slate-800 rounded-lg sm:col-span-4 lg:col-span-5">
                                 <option value="" disabled selected>Select Icon</option>
                                 <option value="bi-envelope-fill">Envelope</option>
                                 <option value="bi-whatsapp">WhatsApp</option>
@@ -279,36 +281,38 @@
                         <x-button class="w-full py-2 text-white bg-gradient-to-tr from-gray-900 to-slate-700"
                             onclick="changeBackground('linear-gradient(to top right, #1F2937, #6B7280'), changeFontWhite()">
                             Black-Gray </x-button>
-                        <x-button
+                        <x-button class="w-full py-2 text-white bg-gradient-to-tr from-orange-500 to-green-500"
+                            onclick="changeBackground('linear-gradient(to top right, #d06925, #31b941'), changeFontWhite()">
+                            Red-Green </x-button>
+                        {{-- <x-button
                             class="w-full py-2 bg-gradient-to-tr from-purple to-purple dark:from-orange-500 dark:to-orange-500" id="custombgbtn"
-                            onclick="openWarna()">Custom </x-button>
+                            onclick="openWarna()">Custom </x-button> --}}
                     </div>
-                    <div id="modalWarna" class="items-center justify-center hidden mt-6 bg-opacity-75">
-                        <div class="flex justify-around pb-5">
+                    <p class="text-dark dark:text-white">Atau</p>
+                    <div id="modalWarna" class="items-center justify-center mt-6 bg-opacity-75">
+                        <div class="flex-none md:flex lg:flex justify-between">
                             <div>
-                                <label for="grad-1" class="font-semibold text-dark dark:text-white">Custom Gradient</label>
-                                <div class="flex items-center mt-2 space-x-2">
-                                    <input class="w-full h-12 rounded" type="color" id="grad-1"
-                                        oninput="applyCustomBackground()">
-                                    <p id="color1" class="w-1/6 text-dark dark:text-white">#color1</p>
-                                </div>
-                                <div class="flex items-center mt-2 space-x-2">
-                                    <input class="w-full h-12 rounded" type="color" id="grad-2"
-                                        oninput="applyCustomBackground()">
-                                    <p id="color2" class="w-1/6 text-dark dark:text-white">#color2</p>
-                                </div>
-                                <div class="mt-4">
-                                    <label for="font-c" class="font-semibold text-dark dark:text-white">Font Color</label>
-                                    <div class="flex items-center mt-2 space-x-2">
-                                        <input type="color" id="font-c" class="w-full h-12 rounded">
-                                        <p id="font-color-hex" class="w-1/6 text-dark dark:text-white">#color</p>
+                                <label for="grad-1" class="font-semibold text-dark dark:text-white">Custom
+                                    Gradient</label>
+                                <div class="flex items-center gap-2">
+                                    <div class="flex items-center space-x-2">
+                                        <input class="w-28 h-12 bg-transparent" type="color" id="grad-1"
+                                            oninput="applyCustomBackground()">
+                                        <p id="color1" class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color1</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input class="w-28 h-12 bg-transparent" type="color" id="grad-2"
+                                            oninput="applyCustomBackground()">
+                                        <p id="color2" class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color2</p>
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <label for="gradient-direction"
-                                    class="block mb-2 font-semibold text-dark dark:text-white">Gradient Direction</label>
-                                <select id="gradient-direction" class="w-full p-2 border rounded"
+                                    class="block mb-2 font-semibold text-dark dark:text-white">Gradient
+                                    Direction</label>
+                                <select id="gradient-direction"
+                                    class="w-full p-2 border rounded text-dark dark:text-orange-500 bg-light dark:bg-slate-800"
                                     onchange="applyCustomBackground()">
                                     <option value="to top right">To Top Right</option>
                                     <option value="to bottom right">To Bottom Right</option>
@@ -372,6 +376,13 @@
                             <x-button class="w-full font-merienda"
                                 onclick="changeFont('merienda')">Merienda</x-button>
                             <x-button class="w-full font-kalam" onclick="changeFont('kalam')">Kalam</x-button>
+                        </div>
+                        <div class="mt-4">
+                            <label for="font-c" class="font-semibold text-dark dark:text-white">Font Color</label>
+                            <div class="flex items-center mt-2 space-x-2">
+                                <input type="color" id="font-c" class="w-28 h-12 bg-transparent">
+                                <p id="font-color-hex" class="w-1/6 text-dark dark:text-white">#color</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -461,23 +472,34 @@
                             </div>
                         </button>
                     </div>
-                    <div class="form-container">
-                        <label for="grad-dir-btn">Button Type:</label>
-                        <select id="grad-dir-btn" class="w-1/3 p-2 border rounded" onchange="changebtnclr()">
-                            <option value="45deg">To Top Right</option>
-                            <option value="135deg">To Bottom Right</option>
-                            <option value="225deg">To Bottom Left</option>
-                            <option value="315deg">To Top Left</option>
-                            <option value="0deg">To Top</option>
-                            <option value="180deg">To Bottom</option>
-                            <option value="90deg">To Left</option>
-                            <option value="270deg">To Right</option>
-
-                            <label for="btnf1">Fill Color 1:</label>
-                            <input type="color" id="btnf1" value="#ffffff" oninput="changebtnclr()">
-
-                            <label for="btnf2">Fill Color 0:</label>
-                            <input type="color" id="btnf2" value="#ffffff" oninput="changebtnclr()">
+                    <div class="form-container px-3">
+                        <label for="grad-dir-btn"
+                        class="block mb-2 font-semibold text-dark dark:text-white">Button
+                        Type:</label>                        
+                        <div class="flex items-center">
+                            <div>
+                                <select id="grad-dir-btn"
+                                    class="w-full p-2 border rounded text-dark dark:text-orange-500 bg-light dark:bg-slate-800"
+                                    onchange="changebtnclr()">
+                                    <option value="45deg">To Top Right</option>
+                                    <option value="135deg">To Bottom Right</option>
+                                    <option value="225deg">To Bottom Left</option>
+                                    <option value="315deg">To Top Left</option>
+                                    <option value="0deg">To Top</option>
+                                    <option value="180deg">To Bottom</option>
+                                    <option value="90deg">To Left</option>
+                                    <option value="270deg">To Right</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="btnf2">Fill Color 0:</label>
+                                <input type="color" id="btnf2" value="#ffffff" class="w-28 h-12 bg-transparent" oninput="changebtnclr()">
+                            </div>
+                            <div>
+                                <label for="btnf1">Fill Color 1:</label>
+                                <input type="color" id="btnf1" value="#ffffff" class="w-28 h-12 bg-transparent" oninput="changebtnclr()">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

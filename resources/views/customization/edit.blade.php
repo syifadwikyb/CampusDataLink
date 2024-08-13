@@ -11,106 +11,139 @@
     @vite('resources/css/app.css')
     <title>Customization</title>
 </head>
-
-<body class="w-full xl:flex bg-white dark:bg-slate-900 font-montserrat">
-    {{-- Area Kustomisasi --}}
-    <div class="w-full xl:w-2/3">
-        <x-customization-box :customizations="$customization" :social-buttons="$socialButtons" :link-buttons="$linkButtons">
-            {{-- Hidden POST Form  --}}
-            <div class="justify-end w-full">
-                <form method="POST" class="flex justify-end space-y-4" id="previewForm"
-                    action="{{ route('customization.update') }}" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                    {{-- Tampilan --}}
-                    <input type="text" name="display_preview_class" class="hidden" id="displayPreviewInput"
-                        value="{{ $customization->display_preview_class }}">
-                    {{-- Background --}}
-                    <input type="text" name="display_preview_bg" class="hidden" id="displayPreviewBg"
-                        value="{{ $customization->display_preview_bg }}">
-                    {{-- Slug / Custom Link --}}
-                    <input type="text" name="slug_input" id="slug_input" class="hidden"
-                        value="{{ $customization->slug }}">
-                    {{-- Title --}}
-                    <input type="text" name="title_input" id="titlePreviewInput" class="hidden"
-                        value="{{ $customization->title }}">
-                    {{-- About --}}
-                    <input type="text" name="about_input" id="aboutPreviewInput" class="hidden"
-                        value="{{ $customization->about }}">
-                    {{-- Banner --}}
-                    <input type="file" name="banner" id="bannerFileInput" class="hidden" accept="image/*"
-                        oninput="previewImage('bannerFileInput', 'bannerPreview')">
-                    {{-- PP --}}
-                    <input type="file" name="profile" id="profileFileInput" class="hidden" accept="image/*"
-                        oninput="previewImage('profileFileInput', 'profilePreview')">
-                    {{-- Button Style --}}
-                    <input class="hidden" type="text" name="btnstyle_input" id="btnStyleInput"
-                        value="{{ $customization->display_btn_style }}">
-                    <input class="hidden" type="text" name="btnprops_input" id="btnPropInput"
-                        value="{{ $customization->display_btn_prop }}">
-                    {{-- Link Sosmed --}}
-                    <div class="hidden" id="socialButtonsContainer"></div>
-                    {{-- Link Tombol --}}
-                    <div class="hidden" id="linkButtonsContainer"></div>
-                    <button class="p-2 px-4 font-bold text-white bg-green-500 rounded-lg" type="submit"
-                        onclick="setProps()">Save Previews</button>
-                </form>            
-            </div>
-        </x-customization-box>
-    </div>
-    {{-- Area Preview --}}
-    <div class="sticky top-0 w-full p-4 bg-gray-300 text-l xl:w-1/3" style="max-height:100vh">
-        <div class="mx-auto overflow-hidden rounded-3xl border-8 border-black bg-black w-[420px] xl:w-[420px] h-[900px] mt-6 xl:mt-0"
-            style="z-index: -10">
-            {{-- Header Notif Bar --}}
-            <h1 class="sticky top-0 w-full px-3 text-right text-white bg-gray-400 rounded-t-2xl">5G ᯤ | 50%</h1>
-            {{-- Container Utama --}}
-            <div class="{{ $customization->display_preview_class }} "
-                style="z-index: -4; overflow-y: auto ;{{ $customization->display_preview_bg }} {{ $customization->display_preview_fc }}"
-                id="displayPreview">
-                <div class="bg-gray-200">
-                    @if ($customization->banner)
-                        <img class="object-cover h-[190px] w-full"
-                            src="{{ asset('storage/' . $customization->banner) }}" id="bannerPreview" alt="Banner">
-                    @endif
-                </div>
-                <div>
-                    <div class="w-24 mx-auto bg-gray-600 rounded-full">
-                        @if ($customization->profile)
-                            <img class="object-cover w-24 h-24 -mt-12 rounded-full text-bold"
-                                src="{{ asset('storage/' . $customization->profile) }}" id="profilePreview"
-                                alt="Profile">
-                        @endif
-                    </div>
-                    <h1 class="mb-2 text-xl font-bold text-center break-words whitespace-normal Title"
-                        id="titlePreview">{{ $customization->title }}</h1>
-                    <p class="mb-4 text-center break-words whitespace-normal About" id="aboutPreview">
-                        {{ $customization->about }}</p>
-                    <div id="linkContainer" class="flex flex-wrap justify-center p-2 mx-auto space-x-2 previewButtons">
-                        @foreach ($socialButtons as $index => $socialButton)
-                            <div class="mb-2 social-button-wrapper" data-id="{{ $index }}">
-                                <a class="{{ $socialButton->icon }}" href="{{ $socialButton->url }}"></a>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div id="buttonContainer" class="justify-center w-full px-2 mt-4 text-center">
-                        @foreach ($linkButtons as $index => $linkButton)
-                            <div class="mb-2 link-button-wrapper" data-id="{{ $index }}">
-                                <div class="z-20 mx-auto w-[390px] h-[70px] flex items-center justify-center">
-                                    <a class="z-20 text-center link-buttons"
-                                        href="{{ $linkButton->url }}">{{ $linkButton->text }}</a>
-                                </div>
-                                <div class="{{ $customization->display_btn_prop }}"
-                                    style="background: {{ $customization->display_btn_style }}">
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+<div class="sticky h-auto top-0 z-50 w-auto bg-white dark:bg-slate-900 transition-all duration-300">
+    <div class="header">
+        <div class="container mx-auto flex justify-between items-center p-8 dark:text-white">
+            <div>
+                <p>Logo</p>
+            </div>            
+            <div class="relative">
+                <button id="bars-icon" class="fas fa-user-circle text-4xl focus:outline-none"></button>
+                <div id="dropdown-menu"
+                    class="hidden absolute right-0 mt-8 w-48 bg-light dark:bg-slate-700 rounded-lg shadow-lg z-10">
+                    <a href="#"
+                        class="flex rounded-lg py-2 w-full justify-center font-bold text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Profile</a>
+                    <a href="{{ route('changepass') }}"
+                        class="flex rounded-lg py-2 w-full justify-center font-bold text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Change
+                        Password</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button
+                            class="flex rounded-lg py-2 w-full justify-center font-bold text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500"
+                            type="submit">Logout</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <x-darkmode></x-darkmode>
     </div>
+</div>
+
+<body class="bg-white dark:bg-slate-900 font-montserrat">
+    <div class="container mx-auto xl:flex">
+        {{-- Area Kustomisasi --}}
+        <div class="w-full xl:w-2/3">
+            <x-customization-box :customizations="$customization" :social-buttons="$socialButtons" :link-buttons="$linkButtons">
+                {{-- Hidden POST Form  --}}
+                <div class="justify-end w-full">
+                    <form method="POST" class="flex justify-end space-y-4" id="previewForm"
+                        action="{{ route('customization.update') }}" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                        {{-- Tampilan --}}
+                        <input type="text" name="display_preview_class" class="hidden" id="displayPreviewInput"
+                            value="{{ $customization->display_preview_class }}">
+                        {{-- Background --}}
+                        <input type="text" name="display_preview_bg" class="hidden" id="displayPreviewBg"
+                            value="{{ $customization->display_preview_bg }}">
+                        {{-- Slug / Custom Link --}}
+                        <input type="text" name="slug_input" id="slug_input" class="hidden"
+                            value="{{ $customization->slug }}">
+                        {{-- Title --}}
+                        <input type="text" name="title_input" id="titlePreviewInput" class="hidden"
+                            value="{{ $customization->title }}">
+                        {{-- About --}}
+                        <input type="text" name="about_input" id="aboutPreviewInput" class="hidden"
+                            value="{{ $customization->about }}">
+                        {{-- Banner --}}
+                        <input type="file" name="banner" id="bannerFileInput" class="hidden" accept="image/*"
+                            oninput="previewImage('bannerFileInput', 'bannerPreview')">
+                        {{-- PP --}}
+                        <input type="file" name="profile" id="profileFileInput" class="hidden" accept="image/*"
+                            oninput="previewImage('profileFileInput', 'profilePreview')">
+                        {{-- Button Style --}}
+                        <input class="hidden" type="text" name="btnstyle_input" id="btnStyleInput"
+                            value="{{ $customization->display_btn_style }}">
+                        <input class="hidden" type="text" name="btnprops_input" id="btnPropInput"
+                            value="{{ $customization->display_btn_prop }}">
+                        {{-- Link Sosmed --}}
+                        <div class="hidden" id="socialButtonsContainer"></div>
+                        {{-- Link Tombol --}}
+                        <div class="hidden" id="linkButtonsContainer"></div>
+                        <button class="p-2 px-4 font-bold text-white bg-green-500 rounded-lg" type="submit"
+                            onclick="setProps()">Save Previews</button>
+                    </form>
+                </div>
+            </x-customization-box>
+        </div>
+        {{-- Area Preview --}}
+        <div class="">
+            <div class="sticky top-0 w-full p-4 bg-white dark:bg-slate-900 text-l xl:w-1/3" style="min-height:60vh">
+                <div class="mx-auto overflow-hidden rounded-3xl border-8 border-black bg-black w-[420px] xl:w-[420px] h-[900px] mt-6 xl:mt-0"
+                    style="z-index: -10">
+                    {{-- Container Utama --}}
+                    <div class="{{ $customization->display_preview_class }} "
+                        style="z-index: -4; overflow-y: auto ;{{ $customization->display_preview_bg }} {{ $customization->display_preview_fc }}"
+                        id="displayPreview">
+                        <div class="bg-gray-200">
+                            @if ($customization->banner)
+                                <img class="object-cover h-[190px] w-full"
+                                    src="{{ asset('storage/' . $customization->banner) }}" id="bannerPreview"
+                                    alt="Banner">
+                            @endif
+                        </div>
+                        <div>
+                            <div class="w-24 mx-auto bg-gray-600 rounded-full">
+                                @if ($customization->profile)
+                                    <img class="object-cover w-24 h-24 -mt-12 rounded-full text-bold"
+                                        src="{{ asset('storage/' . $customization->profile) }}" id="profilePreview"
+                                        alt="Profile">
+                                @endif
+                            </div>
+                            <h1 class="mb-2 text-xl font-bold text-center break-words whitespace-normal Title"
+                                id="titlePreview">{{ $customization->title }}</h1>
+                            <p class="mb-4 text-center break-words whitespace-normal About" id="aboutPreview">
+                                {{ $customization->about }}</p>
+                            <div id="linkContainer"
+                                class="flex flex-wrap justify-center p-2 mx-auto space-x-2 previewButtons">
+                                @foreach ($socialButtons as $index => $socialButton)
+                                    <div class="mb-2 social-button-wrapper" data-id="{{ $index }}">
+                                        <a class="{{ $socialButton->icon }}" href="{{ $socialButton->url }}"></a>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div id="buttonContainer" class="justify-center w-full px-2 mt-4 text-center">
+                                @foreach ($linkButtons as $index => $linkButton)
+                                    <div class="mb-2 link-button-wrapper" data-id="{{ $index }}">
+                                        <div class="z-20 mx-auto w-[390px] h-[70px] flex items-center justify-center">
+                                            <a class="z-20 text-center link-buttons"
+                                                href="{{ $linkButton->url }}">{{ $linkButton->text }}</a>
+                                        </div>
+                                        <div class="{{ $customization->display_btn_prop }}"
+                                            style="background: {{ $customization->display_btn_style }}">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <x-darkmode></x-darkmode>
+            </div>
+        </div>
+    </div>
+    @vite('resources/js/dropdown.js')
+    @vite('resources/js/header.js')
+    <x-footer></x-footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>
         // Kustomisasi Font & BG
@@ -180,7 +213,7 @@
             changeFontColor('black');
         }
 
-        //Popup Custom Warna
+        // Popup Custom Warna
         function openWarna() {
             document.getElementById('modalWarna').classList.toggle('hidden');
         }
@@ -588,7 +621,8 @@
             } else {
                 // If btnExample is not found, set default values
                 innerDiv.className = 'box w-full -mt-[86.6px] btnstyle'; // Replace with your default class
-                innerDiv.style.backgroundImage = 'linear-gradient(45deg, red, black)'; // Replace with your default background image
+                innerDiv.style.backgroundImage =
+                    'linear-gradient(45deg, #66666, #99999)'; // Replace with your default background image
             }
 
             // Optionally, append innerDiv to the document body or another element
@@ -677,15 +711,16 @@
             const element = document.getElementById(elementId);
             const btn = document.getElementById(btnId);
             if (element.classList.contains('-translate-y-full')) {
-                element.classList.remove('-translate-y-full','h-0', 'opacity-0');
+                element.classList.remove('-translate-y-full', 'h-0', 'opacity-0');
                 element.classList.add('translate-y-0', 'opacity-100');
                 btn.classList.add('rotate-180');
             } else {
                 element.classList.remove('translate-y-0', 'opacity-100');
-                element.classList.add('-translate-y-full','h-0', 'opacity-0');
+                element.classList.add('-translate-y-full', 'h-0', 'opacity-0');
                 btn.classList.remove('rotate-180');
             }
         }
     </script>
 </body>
+
 </html>
