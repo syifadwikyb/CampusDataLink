@@ -36,9 +36,9 @@
                 <h3 class="font-bold text-dark dark:text-white">Custom Link</h3>
                 <div class="flex items-center my-auto mb-0 space-x-2 rounded-lg h-11">
                     <p class="font-bold text-dark dark:text-white">cdlink.id/</p>
-                    <textarea
+                    <input
                         class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
-                        id="slugInput" placeholder="linksaya">{{ $customizations->slug }}</textarea>
+                        id="slugInput" placeholder="linksaya" value="{{ $customizations->slug }}" maxlength="20"></input>
                 </div>
             </div>
         </div>
@@ -85,9 +85,9 @@
         <h3 class="font-bold text-dark dark:text-white">Title</h3>
         <div class="p-3">
             <div class="flex mb-0 space-x-2 h-11">
-                <textarea maxlength="100"
+                <input maxlength="100"
                     class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
-                    id="titleInput" placeholder="Masukkan Teks" oninput="updateTitle()">{{ $customizations->title }}</textarea>
+                    id="titleInput" placeholder="Masukkan Teks" oninput="updateTitle()" value="{{ $customizations->title }}"></input>
             </div>
         </div>
     </div>

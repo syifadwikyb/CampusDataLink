@@ -11,9 +11,9 @@
     @vite('resources/css/app.css')
     <title>Customization</title>
 </head>
-<div class="sticky top-0 z-50 w-auto h-auto transition-all duration-300 bg-white dark:bg-slate-900">
+<div class="sticky top-0 z-50 w-auto transition-all duration-300 bg-white dark:bg-slate-900">
     <div class="header">
-        <div class="container flex items-center justify-between p-8 mx-auto dark:text-white">
+        <div class="container flex items-center justify-between h-100% p-8 mx-auto dark:text-white">
             <div>
                 <p>Logo</p>
             </div>            
@@ -39,7 +39,7 @@
 </div>
 
 <body class="bg-white dark:bg-slate-900 font-montserrat">
-    <div class="container mx-auto xl:flex">
+    <div class="container mx-auto mt-8 xl:flex">
         {{-- Area Kustomisasi --}}
         <div class="w-full xl:w-2/3">
             <x-customization-box :customizations="$customization" :social-buttons="$socialButtons" :link-buttons="$linkButtons">
@@ -87,7 +87,7 @@
         </div>
         {{-- Area Preview --}}
         <div class="">
-            <div class="sticky top-0 w-full p-4 bg-white dark:bg-slate-900 text-l xl:w-1/3" style="min-height:60vh">
+            <div class="sticky w-full p-4 bg-white top-24 dark:bg-slate-900 text-l xl:w-1/3" style="min-height:60vh">
                 <div class="mx-auto overflow-hidden rounded-3xl border-8 border-black bg-black w-[420px] xl:w-[420px] h-[900px] mt-6 xl:mt-0"
                     style="z-index: -10">
                     {{-- Container Utama --}}
