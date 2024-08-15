@@ -22,7 +22,7 @@
     }
 </style>
 
-<body class="font-montserrat bg-no-repeat min-h-screen" style="{{ $customization->display_preview_bg }}">
+<body class="min-h-screen bg-no-repeat font-montserrat" style="{{ $customization->display_preview_bg }}">
     <div class="mx-auto overflow-hidden w-[420px] xl:w-[420px] h-[900px] mt-6 xl:mt-0" style="z-index: -10 ; ">
         {{-- Container Utama --}}
         <div class="{{ $customization->display_preview_class }} overflow-y-auto "
@@ -56,7 +56,7 @@
                         <div class="mb-2 link-button-wrapper" data-id="{{ $index }}">
                             <div class="z-20 mx-auto w-[390px] h-[70px] flex items-center justify-center">
                                 <a class="z-20 text-center link-buttons"
-                                    href="{{ $linkButton->url }}">{{ $linkButton->text }}</a>
+                                    href="{{ $linkButton->url }}" style="color:{{ $customization->display_btn_fontc }}">{{ $linkButton->text }}</a>
                             </div>
                             <div class="{{ $customization->display_btn_prop }}"
                                 style="background: {{ $customization->display_btn_style }}">

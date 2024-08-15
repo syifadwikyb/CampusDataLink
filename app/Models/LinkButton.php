@@ -10,10 +10,10 @@ class LinkButton extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'text', 'url'];
+    protected $fillable = ['customization_id', 'text', 'url'];
 
-    public function user()
+    public function customization()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Customization::class);
     }
 }

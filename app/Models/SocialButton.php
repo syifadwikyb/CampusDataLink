@@ -9,10 +9,10 @@ class SocialButton extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'url', 'icon'];
+    protected $fillable = ['customization_id', 'url', 'icon'];
 
-    public function user()
+    public function customization()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Customization::class);
     }
 }

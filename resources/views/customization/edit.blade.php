@@ -16,7 +16,7 @@
         <div class="container flex items-center justify-between h-100% p-8 mx-auto dark:text-white">
             <div>
                 <p>Logo</p>
-            </div>            
+            </div>
             <div class="relative">
                 <button id="bars-icon" class="text-4xl fas fa-user-circle focus:outline-none"></button>
                 <div id="dropdown-menu"
@@ -75,6 +75,8 @@
                             value="{{ $customization->display_btn_style }}">
                         <input class="hidden" type="text" name="btnprops_input" id="btnPropInput"
                             value="{{ $customization->display_btn_prop }}">
+                        <input class="hidden" type="text" name="btnfontc_input" id="btnFontcInput"
+                            value="{{ $customization->display_btn_fontc }}">
                         {{-- Link Sosmed --}}
                         <div class="hidden" id="socialButtonsContainer"></div>
                         {{-- Link Tombol --}}
@@ -125,8 +127,8 @@
                                 @foreach ($linkButtons as $index => $linkButton)
                                     <div class="mb-2 link-button-wrapper" data-id="{{ $index }}">
                                         <div class="z-20 mx-auto w-[390px] h-[70px] flex items-center justify-center">
-                                            <a class="z-20 text-center link-buttons"
-                                                href="{{ $linkButton->url }}">{{ $linkButton->text }}</a>
+                                            <a class="z-20 text-center link-buttons" href="{{ $linkButton->url }}"
+                                                style="color:{{ $customization->display_btn_fontc }}">{{ $linkButton->text }}</a>
                                         </div>
                                         <div class="{{ $customization->display_btn_prop }}"
                                             style="background: {{ $customization->display_btn_style }}">
@@ -162,6 +164,13 @@
             dataset.background = background;
             updateDisplay();
         }
+
+        function readInputColor(labelId, inputId) {
+            var label = document.getElementById(labelId);
+            var color = document.getElementById(inputId).value;
+            label.style.background = color;
+        }
+
 
         function applyCustomBackground() {
             const grad1 = document.getElementById('grad-1').value;
@@ -243,11 +252,13 @@
             const displayPreviewInput = document.getElementById('displayPreviewInput');
             const displayPreview = document.querySelector('.displayPreview');
             const linkbuttons = document.querySelector('.link-button');
+            const alinkButtons = document.querySelector('.link-buttons');
             const titlePreviewInput = document.getElementById('titlePreviewInput');
             const aboutPreviewInput = document.getElementById('aboutPreviewInput');
             const btnPropsInput = document.getElementById('btnPropInput');
             const btnStyle = document.querySelector('.btnstyle');
             const btnStyleInput = document.getElementById('btnStyleInput');
+            const btnFontcInput = document.getElementById('btnFontcInput');
             const socialButtonsContainer = document.getElementById('socialButtonsContainer');
             const linkButtonsContainer = document.getElementById('linkButtonsContainer');
 
@@ -259,6 +270,7 @@
             slugInput.value = document.getElementById('slugInput').value;
             btnStyleInput.value = btnStyle.style.backgroundImage;
             btnPropsInput.value = btnStyle.className;
+            btnFontcInput.value = alinkButtons.style.color;
 
 
             // Clear containers
@@ -604,12 +616,18 @@
             linkButton.className = 'text-center link-buttons z-20';
             linkButton.href = url;
             linkButton.textContent = text;
+            const linkButtons = document.querySelector('.link-buttons');
+            if (linkButtons){
+                linkButton.style.color = linkButtons.style.color;
+            } else{
+                linkButton.style.color = 'black';
+            }
             outerDiv.appendChild(linkButton);
 
             // Create the inner div with styles from an example button
             // Try to find the button element
             const btnExample = document.querySelector('.btnstyle');
-            
+
 
             // Create a new div element
             const innerDiv = document.createElement('div');
@@ -618,18 +636,20 @@
             if (btnExample) {
                 innerDiv.className = btnExample.className;
                 const btnExampleStyle = btnExample.style.backgroundImage;
-                if (btnExampleStyle){
+                if (btnExampleStyle) {
                     innerDiv.style.backgroundImage = btnExample.style.backgroundImage;
                 } else {
                     innerDiv.style.backgroundImage =
-                    'linear-gradient(45deg, #666666, #999999)';
-                }                
+                        'linear-gradient(45deg, #666666, #999999);';
+
+                }
             } else {
                 // If btnExample is not found, set default values
                 innerDiv.className = 'box mb-2 -mt-[86.6px] btnstyle'; // Replace with your default class
                 // Replace with your default background image
                 innerDiv.style.backgroundImage =
                     'linear-gradient(45deg, #666666, #999999)';
+
             }
 
             // Optionally, append innerDiv to the document body or another element
@@ -705,14 +725,19 @@
         }
 
         function changebtnclr() {
+            const alink = document.querySelectorAll('.link-buttons');
             const buttons = document.querySelectorAll('.btnstyle');
             const direction = document.getElementById('grad-dir-btn').value;
             const grad1 = document.getElementById('btnf1').value;
             const grad2 = document.getElementById('btnf2').value;
+            const afc = document.getElementById('btnfc').value;
+            alink.forEach(a => {
+                a.style.color = `${afc}`;
+            });
             buttons.forEach(button => {
                 button.style.backgroundImage = `linear-gradient(${direction}, ${grad1}, ${grad2})`;
             });
-            document.getElementById('btnStyleInput').value= `linear-gradient(${direction}, ${grad1}, ${grad2})`;
+            document.getElementById('btnStyleInput').value = `linear-gradient(${direction}, ${grad1}, ${grad2})`;
         }
 
         function showhide(elementId, btnId) {

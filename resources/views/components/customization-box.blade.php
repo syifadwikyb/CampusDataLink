@@ -87,7 +87,8 @@
             <div class="flex mb-0 space-x-2 h-11">
                 <input maxlength="100"
                     class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
-                    id="titleInput" placeholder="Masukkan Teks" oninput="updateTitle()" value="{{ $customizations->title }}"></input>
+                    id="titleInput" placeholder="Masukkan Teks" oninput="updateTitle()"
+                    value="{{ $customizations->title }}"></input>
             </div>
         </div>
     </div>
@@ -105,7 +106,8 @@
     {{-- Link Medsos --}}
     <div class="flex-grow mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800">
-            <button class="flex items-center justify-between w-[100%]" onclick="showhide('socialmediapropsdiv','socialmediapropsbtn')">
+            <button class="flex items-center justify-between w-[100%]"
+                onclick="showhide('socialmediapropsdiv','socialmediapropsbtn')">
                 <h3 class="font-bold text-dark dark:text-white">Social Media</h3>
                 <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="socialmediapropsbtn">
@@ -185,7 +187,8 @@
                                             {{ $iconClass === 'bi-facebook' ? 'selected' : '' }}>
                                             Facebook
                                         </option>
-                                        <option value="bi-discord" {{ $iconClass === 'bi-discord' ? 'selected' : '' }}>
+                                        <option value="bi-discord"
+                                            {{ $iconClass === 'bi-discord' ? 'selected' : '' }}>
                                             Discord
                                         </option>
                                         <option value="bi-link-45deg"
@@ -206,7 +209,8 @@
     {{-- Tombol Link  --}}
     <div class="mx-auto mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-            <button class="flex items-center justify-between w-[100%]" onclick="showhide('linkpropsdiv','linkpropsbtn')">
+            <button class="flex items-center justify-between w-[100%]"
+                onclick="showhide('linkpropsdiv','linkpropsbtn')">
                 <h3 class="font-bold text-dark dark:text-white">Button Link</h3>
                 <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="linkpropsbtn">
@@ -296,15 +300,25 @@
                                     Gradient</label>
                                 <div class="flex items-center gap-2">
                                     <div class="flex items-center space-x-2">
-                                        <input class="h-12 bg-transparent w-28" type="color" id="grad-1"
-                                            oninput="applyCustomBackground()">
+                                        <label for="grad-1">
+                                            <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
+                                                id="grad-1-label"></div>
+                                        </label>
+                                        <input class="w-0 opacity-0" type="color" id="grad-1"
+                                            oninput="applyCustomBackground(); readInputColor('grad-1-label','grad-1')"
+                                            value="#ffffff">
+
                                         <p id="color1"
                                             class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color1
                                         </p>
                                     </div>
                                     <div class="flex items-center space-x-2">
-                                        <input class="h-12 bg-transparent w-28" type="color" id="grad-2"
-                                            oninput="applyCustomBackground()">
+                                        <label for="grad-2">
+                                            <div class="w-32 h-12 border rounded-lg dark:border-orange-500"
+                                                id="grad-2-label"></div>
+                                        </label>
+                                        <input class="w-0 opacity-0" type="color" id="grad-2"
+                                            oninput="applyCustomBackground(); readInputColor('grad-2-label','grad-2')" value="#ffffff">
                                         <p id="color2"
                                             class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color2
                                         </p>
@@ -337,7 +351,8 @@
     {{-- Font --}}
     <div class="mx-auto mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-            <button class="flex items-center justify-between w-[100%]" onclick="showhide('fontpropsdiv','fontpropsbtn')">
+            <button class="flex items-center justify-between w-[100%]"
+                onclick="showhide('fontpropsdiv','fontpropsbtn')">
                 <h3 class="font-bold text-dark dark:text-white">Font</h3>
                 <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="fontpropsbtn">
@@ -384,7 +399,11 @@
                         <div class="mt-4">
                             <label for="font-c" class="font-semibold text-dark dark:text-white">Font Color</label>
                             <div class="flex items-center mt-2 space-x-2">
-                                <input type="color" id="font-c" class="h-12 bg-transparent w-28">
+                                <label for="font-c">
+                                    <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
+                                        id="font-c-label"></div>
+                                </label>
+                                <input type="color" id="font-c" oninput="readInputColor('font-c-label','font-c')" class="w-0 opacity-0">
                                 <p id="font-color-hex" class="w-1/6 text-dark dark:text-white">#color</p>
                             </div>
                         </div>
@@ -396,7 +415,8 @@
     {{-- Button --}}
     <div class="mx-auto mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-            <button class="flex items-center justify-between w-[100%]" onclick="showhide('btnpropsdiv','btnpropsbtn')">
+            <button class="flex items-center justify-between w-[100%]"
+                onclick="showhide('btnpropsdiv','btnpropsbtn')">
                 <h3 class="font-bold text-dark dark:text-white">Button Properties</h3>
                 <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="btnpropsbtn">
@@ -489,15 +509,29 @@
                                     <option value="270deg">To Right</option>
                                 </select>
                             </div>
-                            <div>
-                                <label for="btnf2">Fill Color 0:</label>
-                                <input type="color" id="btnf2" value="#ffffff"
-                                    class="h-12 bg-transparent w-28" oninput="changebtnclr()">
+                            <div class="flex ml-2">
+                                <label for="btnf1">
+                                    <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
+                                        id="btnf1-label"></div>
+                                </label>
+                                <input type="color" class="opacity-0 size-0" id="btnf1" value="#ffffff"
+                                    class="h-12 bg-transparent w-28" oninput="changebtnclr(); readInputColor('btnf1-label','btnf1')">
                             </div>
-                            <div>
-                                <label for="btnf1">Fill Color 1:</label>
-                                <input type="color" id="btnf1" value="#ffffff"
-                                    class="h-12 bg-transparent w-28" oninput="changebtnclr()">
+                            <div class="flex ml-2">
+                                <label for="btnf2">
+                                    <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
+                                        id="btnf2-label"></div>
+                                </label>
+                                <input type="color" class="opacity-0 size-0" id="btnf2" value="#ffffff"
+                                    class="h-12 bg-transparent w-28" oninput="changebtnclr(); readInputColor('btnf2-label','btnf2')">
+                            </div>
+                            <div class="flex ml-2">
+                                <label for="btnfc">
+                                    <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
+                                        id="btnfc-label"></div>
+                                </label>
+                                <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
+                                    class="h-12 bg-transparent w-28" oninput="changebtnclr(); readInputColor('btnfc-label','btnfc')">
                             </div>
                         </div>
                     </div>

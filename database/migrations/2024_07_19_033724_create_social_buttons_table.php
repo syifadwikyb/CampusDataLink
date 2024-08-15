@@ -11,12 +11,12 @@ public function up()
 {
     Schema::create('social_buttons', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('user_id');
+        $table->unsignedBigInteger('customization_id');
         $table->string('url');
         $table->string('icon');
         $table->timestamps();
 
-        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        $table->foreign('customization_id')->references('id')->on('customizations')->onDelete('cascade');
     });
 }
 

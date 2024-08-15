@@ -44,3 +44,6 @@ Route::post('/changepass-proses', [ChangePassController::class, 'changepass_pros
 
 // Route untuk menampilkan konten berdasarkan slug
 Route::get('/{slug}', [CustomizationController::class, 'showContentBySlug'])->name('customization.showContentBySlug');
+
+Route::delete('/customization/{id}', [CustomizationController::class, 'destroy'])->name('customization.destroy');
+

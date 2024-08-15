@@ -18,6 +18,10 @@ class Customization extends Model
         'profile',
         'display_preview_class',
         'display_preview_bg',
+        'display_btn_prop',
+        'display_btn_style',
+        'display_btn_fontc',
+ 
     ];
 }
 

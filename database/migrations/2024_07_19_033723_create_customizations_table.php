@@ -24,6 +24,7 @@ class CreateCustomizationsTable extends Migration
             $table->string('display_preview_bg')->nullable();
             $table->string('display_btn_prop')->nullable();
             $table->string('display_btn_style')->nullable();
+            $table->string('display_btn_fontc')->nullable();
             $table->timestamps();
         
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
