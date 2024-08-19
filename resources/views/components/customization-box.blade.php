@@ -38,9 +38,9 @@
             var currentSlug = '{{ $customizations->slug }}'; 
 
             var text = $('#slugAv');
-            text.removeClass('hidden text-red-500 text-green-500');
+            // text.removeClass('hidden text-red-500 text-green-500');
 
-            if (slug === '') {
+            if (slug == '') {
                 text.text('Mohon isi link anda!').addClass('text-red-500').removeClass('hidden');
                 return;
             }
@@ -56,9 +56,9 @@
                 data: { slug: slug },
                 success: function(response) {
                     if (response.available) {
-                        text.text('Link tersedia!').addClass('text-green-500').removeClass('hidden');
+                        text.text('Link tersedia!').addClass('text-green-500').removeClass('hidden text-red-500 ');
                     } else {
-                        text.text('Link telah digunakan!').addClass('text-red-500').removeClass('hidden');
+                        text.text('Link telah digunakan!').addClass('text-red-500').removeClass('hidden text-green-500 ');
                     }
                 },
                 error: function() {

@@ -24,7 +24,9 @@
 </style>
 
 <body class="bg-white dark:bg-slate-900 font-montserrat">
-    <div class="sticky top-0 z-50 w-auto h-auto transition-all duration-300 bg-white header">
+    <x-header2></x-header2>
+    {{-- <div class="sticky top-0 z-50 w-auto h-auto transition-all duration-300 bg-white header">
+        
         <div class="container flex items-center justify-between p-8 mx-auto dark:text-white">
             <div>
                 <p>Logo</p>
@@ -49,7 +51,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- resources/views/home.blade.php -->
     <div class="container mx-auto bg-inherit">
         {{-- <h1>Welcome, {{ Auth::user()->name }}</h1> --}}

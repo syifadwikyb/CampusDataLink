@@ -15,7 +15,7 @@ class CustomizationController extends Controller
     {
         $user = auth()->user();
         $user_id = $user->id;
-        $username = $user->name; // Assuming 'name' is the username
+        $username = $user->username; 
 
         // Attempt to retrieve the customization record, or create it if it doesn't exist
         $customization = Customization::firstOrCreate(

@@ -7,10 +7,20 @@ use App\Http\Controllers\CustomizationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ChangePassController;
 
+use App\Http\Controllers\UserController;
+
 // Landing page or customization view
 Route::get('/', function () {
     return view('landingpage');
 });
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/tutorial', function () {
+    return view('tutorial');
+})->name('tutorial');
 
 // Route untuk mengupdate customization termasuk slug
 Route::post('/customization/update', [CustomizationController::class, 'update'])->name('customization.update');
@@ -48,3 +58,17 @@ Route::get('/{slug}', [CustomizationController::class, 'showContentBySlug'])->na
 Route::delete('/customization/{id}', [CustomizationController::class, 'destroy'])->name('customization.destroy');
 Route::get('/customization/check', [CustomizationController::class, 'check'])->name('customization.check');
 
+// routes/web.php
+
+
+// Display profile form
+Route::get('/profile', [UserController::class, 'show'])->name('profile.show');
+
+// Update profile information
+Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');
+
+// Change profile picture
+Route::post('/profile/change-picture', [UserController::class, 'changePicture'])->name('profile.change-picture');
+
+// Delete profile picture
+Route::post('/profile/delete-picture', [UserController::class, 'deletePicture'])->name('profile.delete-picture');
