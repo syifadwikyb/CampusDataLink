@@ -46,4 +46,5 @@ Route::post('/changepass-proses', [ChangePassController::class, 'changepass_pros
 Route::get('/{slug}', [CustomizationController::class, 'showContentBySlug'])->name('customization.showContentBySlug');
 
 Route::delete('/customization/{id}', [CustomizationController::class, 'destroy'])->name('customization.destroy');
+Route::get('/customization/check', [CustomizationController::class, 'check'])->name('customization.check');
 

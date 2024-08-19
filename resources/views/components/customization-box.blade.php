@@ -28,6 +28,49 @@
         /* Default color for .fill1 */
     }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#slugInput').on('input', function() {
+            var slug = $(this).val();
+            var currentSlug = '{{ $customizations->slug }}'; 
+
+            var text = $('#slugAv');
+            text.removeClass('hidden text-red-500 text-green-500');
+
+            if (slug === '') {
+                text.text('Mohon isi link anda!').addClass('text-red-500').removeClass('hidden');
+                return;
+            }
+
+            if (slug === currentSlug) {
+                text.text('Link tersedia!').addClass('text-green-500').removeClass('hidden');
+                return;
+            }
+
+            $.ajax({
+                url: '{{ route('customization.check') }}',
+                type: 'GET',
+                data: { slug: slug },
+                success: function(response) {
+                    if (response.available) {
+                        text.text('Link tersedia!').addClass('text-green-500').removeClass('hidden');
+                    } else {
+                        text.text('Link telah digunakan!').addClass('text-red-500').removeClass('hidden');
+                    }
+                },
+                error: function() {
+                    console.log('Error checking slug availability.');
+                }
+            });
+            
+        });
+    });
+</script>
+
+
 <div class="flex-grow max-w-full px-8 customizations">
     {{-- Link Profil --}}
     <div class="mx-auto mb-3">
@@ -39,6 +82,7 @@
                     <input
                         class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
                         id="slugInput" placeholder="linksaya" value="{{ $customizations->slug }}" maxlength="20"></input>
+                    <span id="slugAv" class="hidden font-bold"></span>
                 </div>
             </div>
         </div>
@@ -176,7 +220,8 @@
                                             {{ $iconClass === 'bi-twitter-x' ? 'selected' : '' }}>
                                             Twitter
                                         </option>
-                                        <option value="bi-youtube" {{ $iconClass === 'bi-youtube' ? 'selected' : '' }}>
+                                        <option value="bi-youtube"
+                                            {{ $iconClass === 'bi-youtube' ? 'selected' : '' }}>
                                             YouTube
                                         </option>
                                         <option value="bi-telegram"
@@ -318,7 +363,8 @@
                                                 id="grad-2-label"></div>
                                         </label>
                                         <input class="w-0 opacity-0" type="color" id="grad-2"
-                                            oninput="applyCustomBackground(); readInputColor('grad-2-label','grad-2')" value="#ffffff">
+                                            oninput="applyCustomBackground(); readInputColor('grad-2-label','grad-2')"
+                                            value="#ffffff">
                                         <p id="color2"
                                             class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color2
                                         </p>
@@ -403,7 +449,8 @@
                                     <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
                                         id="font-c-label"></div>
                                 </label>
-                                <input type="color" id="font-c" oninput="readInputColor('font-c-label','font-c')" class="w-0 opacity-0">
+                                <input type="color" id="font-c"
+                                    oninput="readInputColor('font-c-label','font-c')" class="w-0 opacity-0">
                                 <p id="font-color-hex" class="w-1/6 text-dark dark:text-white">#color</p>
                             </div>
                         </div>
@@ -515,7 +562,8 @@
                                         id="btnf1-label"></div>
                                 </label>
                                 <input type="color" class="opacity-0 size-0" id="btnf1" value="#ffffff"
-                                    class="h-12 bg-transparent w-28" oninput="changebtnclr(); readInputColor('btnf1-label','btnf1')">
+                                    class="h-12 bg-transparent w-28"
+                                    oninput="changebtnclr(); readInputColor('btnf1-label','btnf1')">
                             </div>
                             <div class="flex ml-2">
                                 <label for="btnf2">
@@ -523,7 +571,8 @@
                                         id="btnf2-label"></div>
                                 </label>
                                 <input type="color" class="opacity-0 size-0" id="btnf2" value="#ffffff"
-                                    class="h-12 bg-transparent w-28" oninput="changebtnclr(); readInputColor('btnf2-label','btnf2')">
+                                    class="h-12 bg-transparent w-28"
+                                    oninput="changebtnclr(); readInputColor('btnf2-label','btnf2')">
                             </div>
                             <div class="flex ml-2">
                                 <label for="btnfc">
@@ -531,7 +580,8 @@
                                         id="btnfc-label"></div>
                                 </label>
                                 <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
-                                    class="h-12 bg-transparent w-28" oninput="changebtnclr(); readInputColor('btnfc-label','btnfc')">
+                                    class="h-12 bg-transparent w-28"
+                                    oninput="changebtnclr(); readInputColor('btnfc-label','btnfc')">
                             </div>
                         </div>
                     </div>

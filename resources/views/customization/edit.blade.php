@@ -11,6 +11,9 @@
     @vite('resources/css/app.css')
     <title>Customization</title>
 </head>
+<!-- Add these in the <head> section of your main layout file (e.g., resources/views/layouts/app.blade.php) -->
+
+
 <div class="sticky top-0 z-50 w-auto transition-all duration-300 bg-white dark:bg-slate-900">
     <div class="header">
         <div class="container flex items-center justify-between h-100% p-8 mx-auto dark:text-white">
@@ -617,9 +620,9 @@
             linkButton.href = url;
             linkButton.textContent = text;
             const linkButtons = document.querySelector('.link-buttons');
-            if (linkButtons){
+            if (linkButtons) {
                 linkButton.style.color = linkButtons.style.color;
-            } else{
+            } else {
                 linkButton.style.color = 'black';
             }
             outerDiv.appendChild(linkButton);
