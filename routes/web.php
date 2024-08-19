@@ -6,11 +6,20 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomizationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ChangePassController;
+use App\Http\Controllers\ProfileController;
 
 // Landing page or customization view
 Route::get('/', function () {
     return view('landingpage');
 });
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/tutorial', function () {
+    return view('tutorial');
+})->name('tutorial');
 
 // Route untuk mengupdate customization termasuk slug
 Route::post('/customization/update', [CustomizationController::class, 'update'])->name('customization.update');
@@ -44,3 +53,7 @@ Route::post('/changepass-proses', [ChangePassController::class, 'changepass_pros
 
 // Route untuk menampilkan konten berdasarkan slug
 Route::get('/{slug}', [CustomizationController::class, 'showContentBySlug'])->name('customization.showContentBySlug');
+
+// Profile
+Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
+Route::post('/profile/delete-picture', [ProfileController::class, 'deleteProfilePicture'])->name('profile.delete-picture');

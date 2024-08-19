@@ -17,6 +17,8 @@ public function up()
         $table->string('name');
         $table->string('email')->unique();
         $table->string('password');
+        $table->string('phone_number')->unique();
+        $table->string('profile_picture')->nullable();
         $table->rememberToken();
         $table->timestamps();
     });
@@ -24,7 +26,10 @@ public function up()
 
 public function down()
 {
-    Schema::dropIfExists('users');
+    Schema::table('users', function (Blueprint $table) {
+        $table->dropColumn('profile_picture');
+        $table->dropColumn('phone_number');
+    });
 }
 
 };
