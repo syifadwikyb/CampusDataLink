@@ -23,25 +23,25 @@
 </head>
 
 <body class="bg-white dark:bg-slate-900 font-montserrat">
-    <div class="flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row text-black">
-        <aside class="sticky top-0 z-50 w-full md:w-1/3 lg:w-1/4 p-8">
+    <div class="flex flex-col gap-5 px-3 text-black md:px-16 lg:px-28 md:flex-row">
+        <aside class="sticky top-0 z-50 w-full p-8 md:w-1/3 lg:w-1/4">
             <div class="flex items-center justify-end md:hidden">
                 <button id="bars-icon" class="text-2xl focus:outline-none" onclick="toggleMenu()">
-                    <i id="icon" class="fas fa-bars text-black dark:text-white"></i>
+                    <i id="icon" class="text-black fas fa-bars dark:text-white"></i>
                 </button>
             </div>
             <div id="dropdown-menu"
-                class="flex-col hidden p-4 text-sm border-indigo-100 md:block md:sticky lg:flex top-20 absolute lg:ralative right-0 w-48 md:w-full lg:w-full bg-indigo-50 dark:bg-slate-800 md:bg-none lg:bg-none rounded-lg">
+                class="absolute right-0 flex-col hidden w-48 p-4 text-sm border-indigo-100 rounded-lg md:block md:sticky lg:flex top-20 lg:ralative md:w-full lg:w-full bg-indigo-50 dark:bg-slate-800 md:bg-none lg:bg-none">
                 <a href="{{ route('profile.show') }}"
-                    class="mb-1 flex rounded-lg p-2 w-full font-bold  text-white bg-purple-700 dark:bg-orange-500 dark:text-white">
+                    class="flex w-full p-2 mb-1 font-bold text-white bg-purple-700 rounded-lg dark:bg-orange-500 dark:text-white">
                     Profile
                 </a>
                 <a href="{{ route('changepass') }}"
-                    class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
+                    class="flex w-full p-2 mb-1 font-bold rounded-lg hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
                     Change Password
                 </a>
-                <a href="javascript:history.back()"
-                    class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
+                <a href="{{ route('home') }}"
+                    class="flex w-full p-2 mb-1 font-bold rounded-lg hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
                     Kembali
                 </a>
             </div>
@@ -49,7 +49,7 @@
         <main class="min-h-screen py-1 md:w-2/3 lg:w-3/4">
             <div class="p-2 md:p-4">
                 <div class="px-6 pb-8 mt-8 sm:rounded-lg">
-                    <h2 class="text-black dark:text-white pl-6 text-2xl font-bold sm:text-xl">Public Profile</h2>
+                    <h2 class="pl-6 text-2xl font-bold text-black dark:text-white sm:text-xl">Public Profile</h2>
 
                     <div class="grid mx-auto mt-8">
                         <div class="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
@@ -77,7 +77,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="items-center mt-8 sm:mt-14 text-black">
+                        <div class="items-center mt-8 text-black sm:mt-14">
                             <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div

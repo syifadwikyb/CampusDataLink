@@ -56,8 +56,8 @@
                         <div class="hidden" id="socialButtonsContainer"></div>
                         {{-- Link Tombol --}}
                         <div class="hidden" id="linkButtonsContainer"></div>
-                        <button class="p-2 px-4 font-bold text-white bg-green-500 hover:bg-green-700 rounded-lg" type="submit"
-                            onclick="setProps()">Save Previews</button>
+                        <button class="p-2 px-4 font-bold text-white bg-green-500 rounded-lg hover:bg-green-700" type="submit"
+                            onclick="setProps()">Simpan Perubahan</button>
                     </form>
                 </div>
             </x-customization-box>

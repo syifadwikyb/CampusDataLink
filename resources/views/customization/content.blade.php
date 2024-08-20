@@ -23,7 +23,7 @@
 </style>
 
 <body class="min-h-screen bg-no-repeat font-montserrat" style="{{ $customization->display_preview_bg }}">
-    <div class="mx-auto overflow-hidden w-[420px] xl:w-[420px] h-[900px] mt-6 xl:mt-0" style="z-index: -10 ; ">
+    <div class="mx-auto overflow-hidden w-[420px] xl:w-[420px] h-[900px] xl:mt-0" style="z-index: -10 ; ">
         {{-- Container Utama --}}
         <div class="{{ $customization->display_preview_class }} overflow-y-auto "
             style="z-index: -4; {{ $customization->display_preview_fc }}" id="displayPreview">

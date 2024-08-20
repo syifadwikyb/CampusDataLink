@@ -27,19 +27,19 @@
     <x-header2></x-header2>
     <!-- resources/views/home.blade.php -->
     <div class="container mx-auto bg-inherit">    
-        <div class="min-h-[57vh] p-6">
+        <div class="min-h-[58vh] p-6">
             @if ($customization)
                 <div class="text-black dark:text-white">
                     <p class="mb-5 ml-5 text-lg font-semibold">Halaman anda:</p>
-                    <div class="flex items-center p-5 rounded-lg bg-slate-100 dark:bg-slate-800 shadow-2xl">
+                    <div class="flex items-center p-5 rounded-lg shadow-2xl bg-slate-100 dark:bg-slate-800">
                         <p class="flex-grow "><strong>cdlink.id/</strong>{{ $customization->slug }}</p>
                         <button
                             onclick="window.location.href='{{ route('customization.showContentBySlug', ['slug' => $customization->slug]) }}'"
-                            class="px-3 py-3 ml-2 text-sm font-semibold lg:text-base rounded-lg md:px-4 lg:px-5 text-white bg-green-600 hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-800 dark:text-white focus:outline-none">
+                            class="px-3 py-3 ml-2 text-sm font-semibold text-white bg-green-600 rounded-lg lg:text-base md:px-4 lg:px-5 hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-800 dark:text-white focus:outline-none">
                             View
                         </button>
                         <button onclick="window.location.href='{{ route('customization.edit') }}'"
-                            class="px-3 py-3 ml-2 text-sm font-semibold lg:text-base rounded-lg md:px-4 lg:px-5 text-white bg-purple-700 hover:bg-purple-900 dark:bg-orange-500 dark:hover:bg-orange-700 dark:text-white focus:outline-none">
+                            class="px-3 py-3 ml-2 text-sm font-semibold text-white bg-purple-700 rounded-lg lg:text-base md:px-4 lg:px-5 hover:bg-purple-900 dark:bg-orange-500 dark:hover:bg-orange-700 dark:text-white focus:outline-none">
                             Edit
                         </button>                        
                         <!-- Assuming this is within the customization.edit view -->
@@ -48,7 +48,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit"
-                                class="px-3 py-3 ml-2 text-sm font-semibold bg-red-500 hover:bg-red-800 lg:text-base rounded-lg md:px-4 lg:px-5 text-white dark:bg-red-500 dark:text-white focus:outline-none">
+                                class="px-3 py-3 ml-2 text-sm font-semibold text-white bg-red-500 rounded-lg hover:bg-red-800 lg:text-base md:px-4 lg:px-5 dark:bg-red-500 dark:text-white focus:outline-none">
                                 Delete
                             </button>
                         </form>
@@ -61,7 +61,7 @@
                     <div class="flex items-center p-5 rounded-lg bg-indigo-50 dark:bg-slate-800">
                         <p class="flex-grow ">Buat halaman Anda!</p>
                         <button onclick="window.location.href='{{ route('customization.edit') }}'"
-                            class="px-4 py-3 ml-1 text-sm font-semibold lg:text-base rounded-lg md:px-8 lg:px-10 text-white bg-purple-700 dark:bg-orange-500 dark:text-white focus:outline-none">
+                            class="px-4 py-3 ml-1 text-sm font-semibold text-white bg-purple-700 rounded-lg lg:text-base md:px-8 lg:px-10 dark:bg-orange-500 dark:text-white focus:outline-none">
                             Buat
                         </button>
                     </div>

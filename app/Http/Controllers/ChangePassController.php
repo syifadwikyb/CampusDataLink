@@ -40,7 +40,7 @@ class ChangePassController extends Controller
             $user->password = bcrypt($newpassword);
             try {
                 $user->save();
-                return redirect()->route('changepass')->with('success', 'Selamat anda berhasil ubah password');
+                return redirect()->route('home')->with('success', 'Selamat anda berhasil ubah password');
             } catch (\Exception $e) {
                 return redirect()->route('changepass')->with('failed', 'Anda gagal mengubah password');
             }
