@@ -20,11 +20,11 @@
             </div>
             <div id="dropdown-menu"
                 class="flex-col hidden p-4 text-sm border-indigo-100 md:block md:sticky lg:flex top-20 absolute lg:ralative right-0 w-48 md:w-full lg:w-full bg-indigo-50 dark:bg-slate-800 md:bg-none lg:bg-none rounded-lg">
-                <a href="#"
+                <a href="{{ route('profile.show') }}"
                     class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
                     Profile
                 </a>
-                <a href="#"
+                <a href="{{ route('changepass') }}"
                     class="mb-1 flex rounded-lg p-2 w-full font-bold  text-white bg-purple-700 dark:bg-orange-500 dark:text-white">
                     Change Password
                 </a>
@@ -51,7 +51,7 @@
                                         class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 border-r-0 text-black dark:text-white font-semibold text-sm rounded-l-lg block w-full p-2.5 focus:ring-0 focus:outline-none"
                                         placeholder="Masukkan password">
                                     <span
-                                        class="icon-eye cursor-pointer bg-indigo-50 dark:bg-slate-900 text-black dark:text-orange-500 text-sm rounded-r-lg border border-indigo-300 dark:border-oran`ge-300 border-l-0 outline-none block p-2.5"
+                                        class="icon-eye cursor-pointer bg-indigo-50 dark:bg-slate-900 text-black dark:text-orange-500 text-sm rounded-r-lg border border-indigo-300 dark:border-orange-300 border-l-0 outline-none block p-2.5"
                                         onclick="togglePasswordVisibility('oldpassword')">
                                         <i class="fas fa-eye"></i>
                                     </span>

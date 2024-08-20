@@ -14,9 +14,11 @@ Route::get('/', function () {
     return view('landingpage');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+// Display profile form
+Route::get('/profile', [UserController::class, 'show'])->name('profile.show');
+
+// Change Password
+Route::get('/changepass', [ChangePassController::class, 'changepass'])->name('changepass');
 
 Route::get('/tutorial', function () {
     return view('tutorial');
@@ -58,11 +60,6 @@ Route::get('/{slug}', [CustomizationController::class, 'showContentBySlug'])->na
 Route::delete('/customization/{id}', [CustomizationController::class, 'destroy'])->name('customization.destroy');
 Route::get('/customization/check', [CustomizationController::class, 'check'])->name('customization.check');
 
-// routes/web.php
-
-
-// Display profile form
-Route::get('/profile', [UserController::class, 'show'])->name('profile.show');
 
 // Update profile information
 Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');

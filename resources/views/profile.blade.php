@@ -32,11 +32,11 @@
             </div>
             <div id="dropdown-menu"
                 class="flex-col hidden p-4 text-sm border-indigo-100 md:block md:sticky lg:flex top-20 absolute lg:ralative right-0 w-48 md:w-full lg:w-full bg-indigo-50 dark:bg-slate-800 md:bg-none lg:bg-none rounded-lg">
-                <a href="#"
+                <a href="{{ route('profile.show') }}"
                     class="mb-1 flex rounded-lg p-2 w-full font-bold  text-white bg-purple-700 dark:bg-orange-500 dark:text-white">
                     Profile
                 </a>
-                <a href="#"
+                <a href="{{ route('changepass') }}"
                     class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
                     Change Password
                 </a>
