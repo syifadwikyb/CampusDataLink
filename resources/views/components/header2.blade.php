@@ -5,20 +5,20 @@
         </div>
         <div class="flex items-center justify-between">
             <div class="relative">
-                <button id="bars-icon" class="text-4xl fas fa-solid fa-bars focus:outline-none"></button>
+                <button id="bars-icon" class="text-2xl fas fa-solid fa-bars focus:outline-none"></button>
                 <div id="dropdown-menu"
-                    class="absolute right-0 z-10 hidden w-48 mt-8 rounded-lg shadow-lg bg-light dark:bg-slate-700">
+                    class="absolute p-4 right-0 z-10 hidden w-48 mt-8 rounded-lg shadow-lg bg-indigo-50 dark:bg-slate-800">
                     <a href="{{ route('profile.show') }}"
-                        class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Profile</a>
+                        class="mb-1 flex justify-center w-full py-2 font-bold rounded-lg  dark:text-white hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500">Profile</a>
                     {{-- <a href="{{ route('changepass') }}"
-                        class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Change
+                        class="mb-1 flex justify-center w-full py-2 font-bold rounded-lg  dark:text-white hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500">Change
                         Password</a> --}}
                     <a href="{{ route('tutorial') }}"
-                        class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Tutorial</a>
-                    <form action="{{ route('logout') }}" method="POST">
+                        class="mb-1 flex justify-center w-full py-2 font-bold rounded-lg  dark:text-white hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500">Tutorial</a>
+                    <form action="{{ route('logout') }}" method="POST" class="m-0">
                         @csrf
                         <button
-                            class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500"
+                            class="flex justify-center w-full py-2 font-bold rounded-lg  dark:text-white hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500"
                             type="submit">Logout</button>
                     </form>
                 </div>

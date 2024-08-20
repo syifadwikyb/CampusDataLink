@@ -11,36 +11,8 @@
     @vite('resources/css/app.css')
     <title>Customization</title>
 </head>
-<!-- Add these in the <head> section of your main layout file (e.g., resources/views/layouts/app.blade.php) -->
 
-
-<div class="sticky top-0 z-50 w-auto transition-all duration-300 bg-white dark:bg-slate-900">
-    <div class="header">
-        <div class="container flex items-center justify-between h-100% p-8 mx-auto dark:text-white">
-            <div>
-                <p>Logo</p>
-            </div>
-            <div class="relative">
-                <button id="bars-icon" class="text-4xl fas fa-user-circle focus:outline-none"></button>
-                <div id="dropdown-menu"
-                    class="absolute right-0 z-10 hidden w-48 mt-8 rounded-lg shadow-lg bg-light dark:bg-slate-700">
-                    <a href="#"
-                        class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Profile</a>
-                    <a href="{{ route('changepass') }}"
-                        class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500">Change
-                        Password</a>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button
-                            class="flex justify-center w-full py-2 font-bold rounded-lg text-purple dark:text-white hover:text-white hover:bg-purple dark:hover:bg-orange-500"
-                            type="submit">Logout</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<x-header2></x-header2>
 <body class="bg-white dark:bg-slate-900 font-montserrat">
     <div class="container mx-auto mt-8 xl:flex">
         {{-- Area Kustomisasi --}}
@@ -84,7 +56,7 @@
                         <div class="hidden" id="socialButtonsContainer"></div>
                         {{-- Link Tombol --}}
                         <div class="hidden" id="linkButtonsContainer"></div>
-                        <button class="p-2 px-4 font-bold text-white bg-green-500 rounded-lg" type="submit"
+                        <button class="p-2 px-4 font-bold text-white bg-green-500 hover:bg-green-700 rounded-lg" type="submit"
                             onclick="setProps()">Save Previews</button>
                     </form>
                 </div>
@@ -221,8 +193,8 @@
             changeFontColor('white');
         }
 
-        function changeFontBlack() {
-            changeFontColor('black');
+        function changeFontDark() {
+            changeFontColor('dark');
         }
 
         // Popup Custom Warna
@@ -623,7 +595,7 @@
             if (linkButtons) {
                 linkButton.style.color = linkButtons.style.color;
             } else {
-                linkButton.style.color = 'black';
+                linkButton.style.color = 'dark';
             }
             outerDiv.appendChild(linkButton);
 

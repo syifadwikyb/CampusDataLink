@@ -32,7 +32,7 @@
             sunIcon.classList.add('hidden');
         } else {
             html.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
+            localStorage.setItem('theme', 'white');
             sunIcon.classList.remove('hidden');
             moonIcon.classList.add('hidden');
         }

@@ -15,9 +15,9 @@ export default {
         'cb': 'repeat(16, minmax(0, 1fr))', // 4 columns
       },
       colors:{
-        'purple': '#AF379F',
+        'ungu': '#AF379F',
         'light': '#F5F5F5',
-        'dark': '#000000', 
+        'dark': '##202142', 
         'biru': '#40048E',
         'abu': '#B2A7A7',
         'birutua':'#440882',

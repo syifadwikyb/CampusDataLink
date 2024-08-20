@@ -24,18 +24,19 @@
     .button {
         --fill0-color: white;
         /* Default color for .fill0 */
-        --fill1-color: black;
+        --fill1-color: dark;
         /* Default color for .fill1 */
     }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    < script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" >
+</script>
 <script>
     $(document).ready(function() {
         $('#slugInput').on('input', function() {
             var slug = $(this).val();
-            var currentSlug = '{{ $customizations->slug }}'; 
+            var currentSlug = '{{ $customizations->slug }}';
 
             var text = $('#slugAv');
             // text.removeClass('hidden text-red-500 text-green-500');
@@ -53,19 +54,23 @@
             $.ajax({
                 url: '{{ route('customization.check') }}',
                 type: 'GET',
-                data: { slug: slug },
+                data: {
+                    slug: slug
+                },
                 success: function(response) {
                     if (response.available) {
-                        text.text('Link tersedia!').addClass('text-green-500').removeClass('hidden text-red-500 ');
+                        text.text('Link tersedia!').addClass('text-green-500').removeClass(
+                            'hidden text-red-500 ');
                     } else {
-                        text.text('Link telah digunakan!').addClass('text-red-500').removeClass('hidden text-green-500 ');
+                        text.text('Link telah digunakan!').addClass('text-red-500')
+                            .removeClass('hidden text-green-500 ');
                     }
                 },
                 error: function() {
                     console.log('Error checking slug availability.');
                 }
             });
-            
+
         });
     });
 </script>
@@ -76,11 +81,11 @@
     <div class="mx-auto mb-3">
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
             <div class="items-center justify-between flex-none md:flex lg:flex">
-                <h3 class="font-bold text-dark dark:text-white">Custom Link</h3>
+                <h3 class="font-bold text-black dark:text-white">Custom Link</h3>
                 <div class="flex items-center my-auto mb-0 space-x-2 rounded-lg h-11">
-                    <p class="font-bold text-dark dark:text-white">cdlink.id/</p>
+                    <p class="font-bold text-black dark:text-white">cdlink.id/</p>
                     <input
-                        class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
+                        class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                         id="slugInput" placeholder="linksaya" value="{{ $customizations->slug }}" maxlength="20"></input>
                     <span id="slugAv" class="hidden font-bold"></span>
                 </div>
@@ -90,34 +95,34 @@
     {{-- Gambar --}}
     <div class="flex p-3 mb-3 space-x-6 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
         <div class="w-1/2">
-            <h3 class="font-bold text-dark dark:text-white">Banner</h3>
+            <h3 class="font-bold text-black dark:text-white">Banner</h3>
             <div class="p-3">
                 <div
-                    class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 rounded-lg dark:border-orange-300 h-14">
+                    class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <p class="hidden mx-auto my-auto text-sm font-light text-center text-gray-400 md:block">
+                            <p class="hidden mx-auto my-auto text-sm font-white text-center text-gray-400 md:block">
                                 Ukuran
                                 optimal 800 x 400px, 1:2</p>
                             <label for="bannerFileInput"
-                                class="w-full p-2 text-center text-white rounded cursor-pointer bg-purple dark:bg-orange-500 md:w-auto">Upload</label>
+                                class="w-full p-2 text-center text-white rounded cursor-pointer bg-purple-700 dark:bg-orange-500 md:w-auto">Upload</label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="w-1/2">
-            <h3 class="font-bold text-dark dark:text-white">Profile</h3>
+            <h3 class="font-bold text-black dark:text-white">Profile</h3>
             <div class="p-3">
                 <div
-                    class="flex flex-col justify-between mb-0 overflow-hidden border border-gray-300 rounded-lg dark:border-orange-300 h-14">
+                    class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <p class="hidden mx-auto my-auto text-sm font-light text-center text-gray-400 md:block">
+                            <p class="hidden mx-auto my-auto text-sm font-white text-center text-gray-400 md:block">
                                 Ukuran
                                 optimal 400 x 400px, 1:1</p>
                             <label for="profileFileInput"
-                                class="w-full p-2 text-center text-white rounded cursor-pointer bg-purple dark:bg-orange-500 md:w-auto">Upload</label>
+                                class="w-full p-2 text-center text-white rounded cursor-pointer bg-purple-700 dark:bg-orange-500 md:w-auto">Upload</label>
                         </div>
                     </div>
                 </div>
@@ -126,11 +131,11 @@
     </div>
     {{-- Judul --}}
     <div class="flex-grow p-3 mb-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-        <h3 class="font-bold text-dark dark:text-white">Title</h3>
+        <h3 class="font-bold text-black dark:text-white">Title</h3>
         <div class="p-3">
             <div class="flex mb-0 space-x-2 h-11">
                 <input maxlength="100"
-                    class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
+                    class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                     id="titleInput" placeholder="Masukkan Teks" oninput="updateTitle()"
                     value="{{ $customizations->title }}"></input>
             </div>
@@ -138,11 +143,11 @@
     </div>
     {{-- Tentang --}}
     <div class="flex-grow p-3 mb-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
-        <h3 class="font-bold text-dark dark:text-white">About</h3>
+        <h3 class="font-bold text-black dark:text-white">About</h3>
         <div class="p-3">
             <div class="flex mb-0 space-x-2 rounded-lg h-28">
                 <textarea
-                    class="flex-grow w-full h-full max-h-full min-h-full p-2 bg-transparent bg-white border border-gray-300 rounded-lg text-dark dark:text-white dark:bg-slate-900 dark:border-orange-300"
+                    class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                     id="aboutInput" placeholder="Masukkan Teks" oninput="updateAbout()">{{ $customizations->about }}</textarea>
             </div>
         </div>
@@ -152,7 +157,7 @@
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800">
             <button class="flex items-center justify-between w-[100%]"
                 onclick="showhide('socialmediapropsdiv','socialmediapropsbtn')">
-                <h3 class="font-bold text-dark dark:text-white">Social Media</h3>
+                <h3 class="font-bold text-black dark:text-white">Social Media</h3>
                 <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="socialmediapropsbtn">
                 </p>
@@ -161,12 +166,12 @@
                 <div class="overflow-hidden">
                     <div id="socialmediapropsdiv"
                         class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
-                        <div class="grid grid-cols-6 mb-2 space-x-2 sm:grid-cols-10 lg:grid-cols-cb">
+                        <div class="grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb gap-3">
                             <input type="text" id="newLinkInput"
-                                class="flex-grow h-full col-span-3 p-2 bg-transparent border border-gray-300 rounded-lg text-dark dark:text-white dark:border-orange-300 sm:col-span-5 lg:col-span-10"
+                                class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                 placeholder="Enter Link">
                             <select id="newIconSelect"
-                                class="flex-grow h-full col-span-2 p-2 bg-transparent border border-gray-300 rounded-lg text-dark dark:text-orange-500 dark:border-orange-300 dark:bg-slate-800 sm:col-span-4 lg:col-span-5">
+                                class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5">
                                 <option value="" disabled selected>Select Icon</option>
                                 <option value="bi-envelope-fill">Envelope</option>
                                 <option value="bi-whatsapp">WhatsApp</option>
@@ -181,15 +186,15 @@
                             </select>
                             <button onclick="generateLinkInput()">
                                 <i
-                                    class="block py-2 text-white rounded-lg bg-purple dark:bg-orange-500 bi bi-plus-lg"></i>
+                                    class="block py-2 text-white rounded-lg bg-purple-700 dark:bg-orange-500 bi bi-plus-lg"></i>
                             </button>
                         </div>
-                        <div id="linkInputs" class="mt-2 space-y-2 text-dark dark:text-orange-500">
+                        <div id="linkInputs" class="mt-2 space-y-2 text-black dark:text-orange-500">
                             @foreach ($socialButtons as $index => $socialButton)
-                                <div class="grid grid-cols-6 mb-2 space-x-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item"
+                                <div class="grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3"
                                     data-id="{{ $index }}">
                                     <input type="text"
-                                        class="flex-grow h-full col-span-3 p-2 bg-transparent bg-white border border-gray-300 rounded-lg dark:border-orange-300 sm:col-span-5 lg:col-span-10 dark:bg-slate-900"
+                                        class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                         value="{{ $socialButton->url }}" data-icon="{{ $socialButton->icon }}"
                                         oninput="updateLink({{ $index }})">
                                     <?php
@@ -200,7 +205,7 @@
                                     }
                                     ?>
                                     <select id="iconDropdown"
-                                        class="flex-grow h-full col-span-2 p-2 bg-white border border-gray-300 rounded-lg text-dark dark:text-orange-500 dark:bg-slate-900 dark:border-orange-300 sm:col-span-4 lg:col-span-5 icon-select"
+                                        class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5 icon-select"
                                         onchange="updateLink({{ $index }})">
                                         <option value="bi-envelope-fill"
                                             {{ $iconClass === 'bi-envelope-fill' ? 'selected' : '' }}>
@@ -256,7 +261,7 @@
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
             <button class="flex items-center justify-between w-[100%]"
                 onclick="showhide('linkpropsdiv','linkpropsbtn')">
-                <h3 class="font-bold text-dark dark:text-white">Button Link</h3>
+                <h3 class="font-bold text-black dark:text-white">Button Link</h3>
                 <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="linkpropsbtn">
                 </p>
@@ -265,29 +270,29 @@
                 <div class="overflow-hidden">
                     <div id="linkpropsdiv"
                         class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
-                        <div class="grid grid-cols-6 mb-2 space-x-2 sm:grid-cols-10 lg:grid-cols-cb">
+                        <div class="grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb gap-3">
                             <input type="text"
-                                class="flex-grow h-full col-span-2 p-2 bg-transparent border border-gray-300 rounded-lg text-dark dark:text-white dark:border-orange-300 sm:col-span-4 lg:col-span-7"
+                                class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                 placeholder="Enter text" id="textInput">
                             <input type="text"
-                                class="flex-grow h-full col-span-3 p-2 bg-transparent border border-gray-300 rounded-lg text-dark dark:text-white dark:border-orange-300 sm:col-span-5 lg:col-span-8"
+                                class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                 placeholder="Enter link" id="urlInput">
                             <button class="items-center justify-center flex-grow col-span-1"
                                 onclick="addLinkButton()">
                                 <i
-                                    class="block py-2 text-white rounded-lg bg-purple dark:bg-orange-500 bi bi-plus-lg"></i>
+                                    class="block py-2 text-white rounded-lg bg-purple-700 dark:bg-orange-500 bi bi-plus-lg"></i>
                             </button>
                         </div>
-                        <div id="linkContainers" class="space-y-2 text-dark dark:text-orange-500">
+                        <div id="linkContainers" class="space-y-2 text-black dark:text-orange-500">
                             @foreach ($linkButtons as $index => $linkButton)
-                                <div class="grid grid-cols-6 space-x-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item"
+                                <div class="grid grid-cols-6 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3"
                                     data-id="{{ $index }}">
                                     <input type="text"
-                                        class="flex-grow col-span-2 p-2 bg-white border border-gray-300 rounded-lg dark:border-orange-300 sm:col-span-4 lg:col-span-7 text-dark dark:text-orange-500 dark:bg-slate-900"
+                                        class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                         value="{{ $linkButton->text }}" data-url="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <input type="text"
-                                        class="flex-grow col-span-3 p-2 bg-white border border-gray-300 rounded-lg dark:border-orange-300 sm:col-span-5 lg:col-span-8 text-dark dark:text-orange-500 dark:bg-slate-900"
+                                        class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                         value="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <button class="items-center justify-center flex-grow col-span-1"
@@ -305,7 +310,7 @@
     {{-- Background --}}
     <div class="p-3 mx-auto mb-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
         <button class="flex items-center justify-between w-[100%]" onclick="showhide('bgpropsdiv','bgpropsbtn')">
-            <h3 class="font-bold text-dark dark:text-white">Background</h3>
+            <h3 class="font-bold text-black dark:text-white">Background</h3>
             <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                 id="bgpropsbtn">
             </p>
@@ -316,67 +321,70 @@
                     class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
                     <div class="grid w-full grid-cols-3 mx-auto gap-x-2 md:grid-cols-6">
                         <x-button class="w-full py-2 bg-gradient-to-tr from-red-700 to-rose-500"
-                            onclick="changeBackground('linear-gradient(to top right, #b91c1c, #f43f5e)'), changeFontBlack()">
+                            onclick="changeBackground('linear-gradient(to top right, #b91c1c, #f43f5e)'), changeFontDark()">
                             Red-Rose </x-button>
                         <x-button class="w-full py-2 bg-gradient-to-tr from-green-700 to-lime-500"
-                            onclick="changeBackground('linear-gradient(to top right, #1D4E1F, #84CC16'), changeFontBlack()">
+                            onclick="changeBackground('linear-gradient(to top right, #1D4E1F, #84CC16'), changeFontDark()">
                             Green-Lime </x-button>
                         <x-button class="w-full py-2 bg-gradient-to-tr from-blue-700 to-sky-500"
-                            onclick="changeBackground('linear-gradient(to top right, #1C3D5A, #6FB1FC'), changeFontBlack()">
+                            onclick="changeBackground('linear-gradient(to top right, #1C3D5A, #6FB1FC'), changeFontDark()">
                             Blue-Sky </x-button>
                         <x-button class="w-full py-2 bg-gradient-to-tr from-yellow-500 to-orange-500"
                             onclick="changeBackground('linear-gradient(to top right, #eab308, #f97316'), changeFontWhite()">
                             Yellow-Orange </x-button>
                         <x-button class="w-full py-2 bg-gradient-to-tr from-gray-300 to-white"
-                            onclick="changeBackground('linear-gradient(to top right, #CBD5E0, #FFFFFF'), changeFontBlack()">
+                            onclick="changeBackground('linear-gradient(to top right, #CBD5E0, #FFFFFF'), changeFontDark()">
                             Gray-White </x-button>
                         <x-button class="w-full py-2 text-white bg-gradient-to-tr from-gray-900 to-slate-700"
                             onclick="changeBackground('linear-gradient(to top right, #1F2937, #6B7280'), changeFontWhite()">
-                            Black-Gray </x-button>
+                            Dark-Gray </x-button>
                         {{-- <x-button
-                            class="w-full py-2 bg-gradient-to-tr from-purple to-purple dark:from-orange-500 dark:to-orange-500" id="custombgbtn"
+                            class="w-full py-2 bg-gradient-to-tr from-purple-700 to-purple-700 dark:from-orange-500 dark:to-orange-500" id="custombgbtn"
                             onclick="openWarna()">Custom </x-button> --}}
                     </div>
-                    <p class="text-dark dark:text-white">Atau</p>
-                    <div id="modalWarna" class="items-center justify-center mt-6 bg-opacity-75">
+                    <p class="text-black dark:text-white font-semibold mt-3">Atau</p>
+                    <div id="modalWarna" class="items-center justify-center mt-3 bg-opacity-75">
                         <div class="justify-between flex-none md:flex lg:flex">
                             <div>
-                                <label for="grad-1" class="font-semibold text-dark dark:text-white">Custom
+                                <label for="grad-1" class="font-semibold text-black dark:text-white">Custom
                                     Gradient</label>
                                 <div class="flex items-center gap-2">
                                     <div class="flex items-center space-x-2">
                                         <label for="grad-1">
-                                            <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
-                                                id="grad-1-label"></div>
+                                            <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5 cursor-pointer"
+                                                id="grad-1-label"><input class="w-0 opacity-0" type="color"
+                                                    id="grad-1"
+                                                    oninput="applyCustomBackground(); readInputColor('grad-1-label','grad-1')"
+                                                    value="#ffffff">
+                                                <p id="color1"
+                                                    class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                                    #color1
+                                                </p>
+                                            </div>
                                         </label>
-                                        <input class="w-0 opacity-0" type="color" id="grad-1"
-                                            oninput="applyCustomBackground(); readInputColor('grad-1-label','grad-1')"
-                                            value="#ffffff">
-
-                                        <p id="color1"
-                                            class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color1
-                                        </p>
                                     </div>
                                     <div class="flex items-center space-x-2">
                                         <label for="grad-2">
-                                            <div class="w-32 h-12 border rounded-lg dark:border-orange-500"
-                                                id="grad-2-label"></div>
+                                            <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5 cursor-pointer"
+                                                id="grad-2-label"><input class="w-0 opacity-0" type="color"
+                                                    id="grad-2"
+                                                    oninput="applyCustomBackground(); readInputColor('grad-2-label','grad-2')"
+                                                    value="#ffffff">
+                                                <p id="color2"
+                                                    class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                                    #color2
+                                                </p>
+                                            </div>
                                         </label>
-                                        <input class="w-0 opacity-0" type="color" id="grad-2"
-                                            oninput="applyCustomBackground(); readInputColor('grad-2-label','grad-2')"
-                                            value="#ffffff">
-                                        <p id="color2"
-                                            class="text-sm md:text-base lg:text-base text-dark dark:text-white">#color2
-                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <label for="gradient-direction"
-                                    class="block mb-2 font-semibold text-dark dark:text-white">Gradient
+                                    class="block font-semibold text-black dark:text-white">Gradient
                                     Direction</label>
                                 <select id="gradient-direction"
-                                    class="w-full p-2 border rounded text-dark dark:text-orange-500 bg-light dark:bg-slate-800"
+                                    class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                     onchange="applyCustomBackground()">
                                     <option value="to top right">To Top Right</option>
                                     <option value="to bottom right">To Bottom Right</option>
@@ -399,7 +407,7 @@
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
             <button class="flex items-center justify-between w-[100%]"
                 onclick="showhide('fontpropsdiv','fontpropsbtn')">
-                <h3 class="font-bold text-dark dark:text-white">Font</h3>
+                <h3 class="font-bold text-black dark:text-white">Font</h3>
                 <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="fontpropsbtn">
                 </p>
@@ -434,7 +442,7 @@
                                 Jakarta Sans</x-button>
                             <x-button class="w-full font-merriweather"
                                 onclick="changeFont('merriweather')">Merriweather</x-button>
-                            <x-button class="w-full font-blackopsone" onclick="changeFont('blackopsone')">Black Ops
+                            <x-button class="w-full font-darkopsone" onclick="changeFont('darkopsone')">Dark Ops
                                 One</x-button>
                             <x-button class="w-full font-rubikmonoone" onclick="changeFont('rubikmonoone')">Rubik
                                 Mono</x-button>
@@ -443,15 +451,18 @@
                             <x-button class="w-full font-kalam" onclick="changeFont('kalam')">Kalam</x-button>
                         </div>
                         <div class="mt-4">
-                            <label for="font-c" class="font-semibold text-dark dark:text-white">Font Color</label>
+                            <label for="font-c" class="font-semibold text-black dark:text-white">Font Color</label>
                             <div class="flex items-center mt-2 space-x-2">
                                 <label for="font-c">
-                                    <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
-                                        id="font-c-label"></div>
+                                    <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5 cursor-pointer"
+                                        id="font-c-label"><input type="color" id="font-c"
+                                            oninput="readInputColor('font-c-label','font-c')" class="w-0 opacity-0">
+                                        <p id="font-color-hex"
+                                            class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                            #color
+                                        </p>
+                                    </div>
                                 </label>
-                                <input type="color" id="font-c"
-                                    oninput="readInputColor('font-c-label','font-c')" class="w-0 opacity-0">
-                                <p id="font-color-hex" class="w-1/6 text-dark dark:text-white">#color</p>
                             </div>
                         </div>
                     </div>
@@ -464,7 +475,7 @@
         <div class="p-3 bg-white rounded-lg shadow-lg dark:bg-slate-800 min-h-16">
             <button class="flex items-center justify-between w-[100%]"
                 onclick="showhide('btnpropsdiv','btnpropsbtn')">
-                <h3 class="font-bold text-dark dark:text-white">Button Properties</h3>
+                <h3 class="font-bold text-black dark:text-white">Button Properties</h3>
                 <p class="p-2 px-6 ml-1 transition-transform duration-300 ease-in-out transform dark:text-white bi bi-chevron-down"
                     id="btnpropsbtn">
                 </p>
@@ -539,12 +550,41 @@
                         </button>
                     </div>
                     <div class="px-3 form-container">
-                        <label for="grad-dir-btn" class="block mb-2 font-semibold text-dark dark:text-white">Button
+                        <label for="grad-dir-btn" class="block mb-2 font-semibold text-black dark:text-white">Button
                             Type:</label>
-                        <div class="flex items-center">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="flex ml-2">
+                                    <label for="btnf1">
+                                        <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
+                                            id="btnf1-label"><input type="color" class="opacity-0 size-0"
+                                                id="btnf1" value="#ffffff" class="h-12 bg-transparent w-28"
+                                                oninput="changebtnclr(); readInputColor('btnf1-label','btnf1')">
+                                            <p id="color1"
+                                                class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                                #color1
+                                            </p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="flex ml-2">
+                                    <label for="btnf2">
+                                        <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
+                                            id="btnf2-label"><input type="color" class="opacity-0 size-0"
+                                                id="btnf2" value="#ffffff" class="h-12 bg-transparent w-28"
+                                                oninput="changebtnclr(); readInputColor('btnf2-label','btnf2')">
+                                            <p id="color2"
+                                                class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                                #color2
+                                            </p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
                             <div>
                                 <select id="grad-dir-btn"
-                                    class="w-full p-2 border rounded text-dark dark:text-orange-500 bg-light dark:bg-slate-800"
+                                    class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                     onchange="changebtnclr()">
                                     <option value="45deg">To Top Right</option>
                                     <option value="135deg">To Bottom Right</option>
@@ -556,34 +596,22 @@
                                     <option value="270deg">To Right</option>
                                 </select>
                             </div>
-                            <div class="flex ml-2">
-                                <label for="btnf1">
-                                    <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
-                                        id="btnf1-label"></div>
-                                </label>
-                                <input type="color" class="opacity-0 size-0" id="btnf1" value="#ffffff"
-                                    class="h-12 bg-transparent w-28"
-                                    oninput="changebtnclr(); readInputColor('btnf1-label','btnf1')">
-                            </div>
-                            <div class="flex ml-2">
-                                <label for="btnf2">
-                                    <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
-                                        id="btnf2-label"></div>
-                                </label>
-                                <input type="color" class="opacity-0 size-0" id="btnf2" value="#ffffff"
-                                    class="h-12 bg-transparent w-28"
-                                    oninput="changebtnclr(); readInputColor('btnf2-label','btnf2')">
-                            </div>
-                            <div class="flex ml-2">
-                                <label for="btnfc">
-                                    <div class="flex items-center justify-center w-32 h-12 border rounded-lg dark:border-orange-500"
-                                        id="btnfc-label"></div>
-                                </label>
-                                <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
-                                    class="h-12 bg-transparent w-28"
-                                    oninput="changebtnclr(); readInputColor('btnfc-label','btnfc')">
-                            </div>
                         </div>
+                        <div class="mt-2 ml-2">
+                                <label for="btnfc" class="block mb-2 font-semibold text-black dark:text-white"> Font Color
+                                    <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
+                                        id="btnfc-label">
+                                        <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
+                                        class="h-12 bg-transparent w-28"
+                                        oninput="changebtnclr(); readInputColor('btnfc-label','btnfc')">    
+                                        <p id="btnfc"
+                                            class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                            #color
+                                        </p>
+                                    </div>
+                                </label>
+                                
+                            </div>                     
                     </div>
                 </div>
             </div>
