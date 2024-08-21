@@ -22,8 +22,8 @@ class CustomizationController extends Controller
             ['user_id' => $user_id],
             [
                 'slug' => $username,
-                'banner' => 'banners/bannerPrev.png',
-                'profile' => 'profiles/profilePrev.png',
+                'banner' => '',
+                'profile' => '',
                 'title' => 'Title',
                 'about' => 'About goes here',
                 'display_preview_class' => 'no-scrollbar overflow-y-auto displayPreview my-auto h-full mb-0 w-full flex-grow-1',
@@ -58,74 +58,78 @@ class CustomizationController extends Controller
     }
 
     public function update(Request $request)
-    {
-        $request->validate([
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'slug_input' => 'required|unique:customizations,slug,' . auth()->user()->id . ',user_id',
-        ]);
+{
+    $request->validate([
+        'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'slug_input' => 'required|unique:customizations,slug,' . auth()->user()->id . ',user_id',
+    ]);
 
-        try {
-            $customization = Customization::where('user_id', auth()->user()->id)->firstOrFail();
+    try {
+        $customization = Customization::where('user_id', auth()->user()->id)->firstOrFail();
 
-            // Handle banner upload
-            if ($request->hasFile('banner')) {
-                if ($customization->banner) {
-                    Storage::disk('public')->delete($customization->banner);
-                }
-                $bannerPath = $request->file('banner')->store('banners', 'public');
-                $customization->banner = $bannerPath;
+        // Handle banner upload
+        if ($request->hasFile('banner')) {
+            if ($customization->banner) {
+                Storage::disk('public')->delete($customization->banner);
             }
-
-            // Handle profile upload
-            if ($request->hasFile('profile')) {
-                if ($customization->profile) {
-                    Storage::disk('public')->delete($customization->profile);
-                }
-                $profilePath = $request->file('profile')->store('profiles', 'public');
-                $customization->profile = $profilePath;
-            }
-
-            // Update other fields
-            $customization->slug = $request->input('slug_input', $customization->slug);
-            $customization->title = $request->input('title_input', $customization->title);
-            $customization->about = $request->input('about_input', $customization->about);
-            $customization->display_preview_class = $request->input('display_preview_class', $customization->display_preview_class);
-            $customization->display_preview_bg = $request->input('display_preview_bg', $customization->display_preview_bg);
-            $customization->display_btn_style = $request->input('btnstyle_input', $customization->display_btn_style);
-            $customization->display_btn_prop = $request->input('btnprops_input', $customization->display_btn_prop);
-            $customization->display_btn_fontc = $request->input('btnfontc_input', $customization->display_btn_fontc);
-            $customization->save();
-
-            // Update social buttons
-            SocialButton::where('customization_id', $customization->id)->delete();
-            if ($request->has('socialButtons')) {
-                foreach ($request->input('socialButtons') as $socialButton) {
-                    SocialButton::create([
-                        'customization_id' => $customization->id,
-                        'url' => $socialButton['url'],
-                        'icon' => $socialButton['icon'],
-                    ]);
-                }
-            }
-
-            // Update link buttons
-            LinkButton::where('customization_id', $customization->id)->delete();
-            if ($request->has('linkButtons')) {
-                foreach ($request->input('linkButtons') as $linkButton) {
-                    LinkButton::create([
-                        'customization_id' => $customization->id,
-                        'url' => $linkButton['url'],
-                        'text' => $linkButton['text'],
-                    ]);
-                }
-            }
-
-            return redirect()->route('customization.home')->with('success', 'Customization updated successfully');
-        } catch (\Illuminate\Database\QueryException $e) {
-            return redirect()->back()->with('error', 'An error occurred while updating customization.');
+            $bannerPath = $request->file('banner')->store('banners', 'public');
+            $customization->banner = $bannerPath;
         }
+
+        // Handle profile upload
+        if ($request->hasFile('profile')) {
+            if ($customization->profile) {
+                Storage::disk('public')->delete($customization->profile);
+            }
+            $profilePath = $request->file('profile')->store('profiles', 'public');
+            $customization->profile = $profilePath;
+        }
+
+        // Update other fields
+        $slug = $request->input('slug_input', $customization->slug);
+        $slug = preg_replace('/\s+/', '-', trim($slug)); // Replace spaces with hyphens
+        $slug = strtolower($slug); // Optionally convert to lowercase
+
+        $customization->slug = $slug;
+        $customization->title = $request->input('title_input', $customization->title);
+        $customization->about = $request->input('about_input', $customization->about);
+        $customization->display_preview_class = $request->input('display_preview_class', $customization->display_preview_class);
+        $customization->display_preview_bg = $request->input('display_preview_bg', $customization->display_preview_bg);
+        $customization->display_btn_style = $request->input('btnstyle_input', $customization->display_btn_style);
+        $customization->display_btn_prop = $request->input('btnprops_input', $customization->display_btn_prop);
+        $customization->display_btn_fontc = $request->input('btnfontc_input', $customization->display_btn_fontc);
+        $customization->save();
+
+        // Update social buttons
+        SocialButton::where('customization_id', $customization->id)->delete();
+        if ($request->has('socialButtons')) {
+            foreach ($request->input('socialButtons') as $socialButton) {
+                SocialButton::create([
+                    'customization_id' => $customization->id,
+                    'url' => $socialButton['url'],
+                    'icon' => $socialButton['icon'],
+                ]);
+            }
+        }
+
+        // Update link buttons
+        LinkButton::where('customization_id', $customization->id)->delete();
+        if ($request->has('linkButtons')) {
+            foreach ($request->input('linkButtons') as $linkButton) {
+                LinkButton::create([
+                    'customization_id' => $customization->id,
+                    'url' => $linkButton['url'],
+                    'text' => $linkButton['text'],
+                ]);
+            }
+        }
+
+        return redirect()->route('customization.home')->with('success', 'Customization updated successfully');
+    } catch (\Illuminate\Database\QueryException $e) {
+        return redirect()->back()->with('error', 'An error occurred while updating customization.');
     }
+}
 
     // In your SlugController
 public function check(Request $request)

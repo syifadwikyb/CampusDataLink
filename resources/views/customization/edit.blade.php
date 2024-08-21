@@ -73,11 +73,12 @@
                         style="z-index: -4; overflow-y: auto ;{{ $customization->display_preview_bg }} {{ $customization->display_preview_fc }}"
                         id="displayPreview">
                         <div class="bg-gray-200">
-                            @if ($customization->banner)
                                 <img class="object-cover h-[190px] w-full"
-                                    src="{{ asset('storage/' . $customization->banner) }}" id="bannerPreview"
+                                    src="{{ $customization->banner ? asset('storage/' . $customization->banner) : "https://cdn.pixabay.com/photo/2018/03/15/08/54/grid-3227459_1280.jpg" }}" id="bannerPreview"
                                     alt="Banner">
-                            @endif
+                                {{-- <img id="profileImage" class="object-cover w-40 h-40 p-1 rounded-full"
+                                src="{{ $user->profile_picture ? asset('storage/' . $user->profile_picture) : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}"
+                                alt="Profile"> --}}
                         </div>
                         <div>
                             <div class="w-24 mx-auto bg-gray-600 rounded-full">
@@ -145,6 +146,12 @@
             var label = document.getElementById(labelId);
             var color = document.getElementById(inputId).value;
             label.style.background = color;
+        }
+
+        function changehexcode(textId, inputId){
+            var text = document.getElementById(textId);
+            var input = document.getElementById(inputId).value;
+            text.textContent = input;
         }
 
 

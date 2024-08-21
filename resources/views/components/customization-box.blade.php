@@ -198,7 +198,7 @@
                                         value="{{ $socialButton->url }}" data-icon="{{ $socialButton->icon }}"
                                         oninput="updateLink({{ $index }})">
                                     <?php
-                                    // Extract data icon
+                                    
                                     $iconClass = '';
                                     if (preg_match('/bi-[\w-]+/', $socialButton->icon, $matches)) {
                                         $iconClass = $matches[0];
@@ -276,7 +276,7 @@
                                 placeholder="Enter link" id="urlInput">
                             <input type="text"
                                 class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                placeholder="Enter text" id="textInput">
+                               maxlength="20"  placeholder="Enter text" id="textInput">
                             <button class="items-center justify-center flex-grow col-span-1"
                                 onclick="addLinkButton()">
                                 <i
@@ -554,26 +554,28 @@
                                 <div class="flex ml-2">
                                     <label for="btnf1">
                                         <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
-                                            id="btnf1-label"><input type="color" class="opacity-0 size-0"
-                                                id="btnf1" value="#ffffff" class="h-12 bg-transparent w-28"
-                                                oninput="changebtnclr(); readInputColor('btnf1-label','btnf1')">
-                                            <p id="color1"
+                                            id="btnf1-label">
+                                            <p id="colorbtn1"
                                                 class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
                                                 #color1
                                             </p>
+                                            <input type="color" class="opacity-0 size-0"
+                                                id="btnf1" value="#ffffff" class="h-12 bg-transparent w-28"
+                                                oninput="changebtnclr(); readInputColor('btnf1-label','btnf1'); changehexcode('colorbtn1', 'btnf1');">
                                         </div>
                                     </label>
                                 </div>
                                 <div class="flex ml-2">
                                     <label for="btnf2">
                                         <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
-                                            id="btnf2-label"><input type="color" class="opacity-0 size-0"
-                                                id="btnf2" value="#ffffff" class="h-12 bg-transparent w-28"
-                                                oninput="changebtnclr(); readInputColor('btnf2-label','btnf2')">
-                                            <p id="color2"
+                                            id="btnf2-label">
+                                            <p id="colorbtn2"
                                                 class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
                                                 #color2
                                             </p>
+                                            <input type="color" class="opacity-0 size-0"
+                                                id="btnf2" value="#ffffff" class="h-12 bg-transparent w-28"
+                                                oninput="changebtnclr(); readInputColor('btnf2-label','btnf2'); changehexcode('colorbtn2', 'btnf2');">
                                         </div>
                                     </label>
                                 </div>
@@ -594,18 +596,18 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="mt-2 ml-2">
-                            <label for="btnfc" class="block mb-2 font-semibold text-black dark:text-white"> Font
+                        <div class="flex mt-2 ml-2">
+                            <label for="btnfc" class="mb-2 font-semibold text-black dark:text-white"> Font
                                 Color
                                 <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
                                     id="btnfc-label">
-                                    <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
-                                        class="h-12 bg-transparent w-28"
-                                        oninput="changebtnclr(); readInputColor('btnfc-label','btnfc')">
-                                    <p id="btnfc"
+                                    <p id="colorfc"
                                         class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
                                         #color
                                     </p>
+                                    <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
+                                        class=" h-12 bg-transparent w-28"
+                                        oninput="changebtnclr(); readInputColor('btnfc-label','btnfc'); changehexcode('colorfc', 'btnfc');">
                                 </div>
                             </label>
 
