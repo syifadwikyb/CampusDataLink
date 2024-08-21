@@ -10,7 +10,7 @@
                 </div>
                 <div class="w-full px-3 lg:w-1/2 text-center lg:text-left">
                     <h1 class="mb-3 font-bold text-xl md:text-3xl lg:text-5xl leading-normal text-black dark:text-white">
-                        Ekspresikan Kreativitasmu dalam <span class=" dark:text-orange-500">Website</span>
+                        Ekspresikan Kreativitasmu dalam <span class="text-purple-700 dark:text-orange-500">Website</span>
                         yang Memukau!</h1>
                     <p class="mb-8 text-sm md:text-base lg:text-lg text-black dark:text-white">Temukan template keren
                         yang bisa kamu sesuaikan dengan mudah. Hadirkan website profesional dan menarik sesuai
@@ -30,7 +30,7 @@
             <img src="{{ asset('asset/tentang.svg') }}" class="hidden lg:h-full md:w-1/2 lg:w-1/2 lg:flex"
                 alt="">
             <div class="text-black p-5 text-center lg:-ml-36 lg:mt-0 lg:text-left">
-                <h1 class="font-bold pb-4 text-2xl md:text-3xl lg:text-4xl dark:text-orange-500">Tentang Kami</h1>
+                <h1 class="font-bold pb-4 text-2xl md:text-3xl lg:text-4xl dark:text-orange-500">About me</h1>
                 <p class="text-sm md:text-base lg:text-base dark:text-white text-justify">Selamat datang di Huaha! Kami
                     adalah platform inovatif yang memudahkan Anda dalam membuat website dengan cepat dan mudah. Di
                     Huaha, kami menyediakan berbagai alat dan fitur yang dirancang untuk membantu Anda menciptakan
@@ -41,7 +41,7 @@
         </div>
 
         <div data-aos="zoom-in" class="text-center mt-10 items-center rounded-lg lg:rounded-none">
-            <h1 class="font-bold pb-4 text-2xl md:text-3xl lg:text-4xl dark:text-orange-500">Keunggulan</h1>
+            <h1 class="font-bold pb-4 text-2xl md:text-3xl lg:text-4xl dark:text-orange-500">Feature</h1>
             <p class="text-sm md:text-base lg:text-base dark:text-white">Fitur Unggulan yang Dirancang Khusus untuk
                 Kebutuhan Anda</p>
             <div class="flex justify-center mx-5 mt-4">
@@ -81,7 +81,7 @@
 
         <p class="pt-16" id="template"></p>
         <div data-aos="zoom-in" class="text-center pb-5">
-            <h1 class="font-bold mt-10 pb-4 text-2xl md:text-3xl lg:text-4xl dark:text-orange-500">Tata Letak Huahua
+            <h1 class="font-bold mt-10 pb-4 text-2xl md:text-3xl lg:text-4xl dark:text-orange-500">Template
             </h1>
             <p class="text-sm md:text-base lg:text-base dark:text-white">Jelajahi berbagai tata letak kami dan mulai
                 buat website impian Anda sekarang!</p>

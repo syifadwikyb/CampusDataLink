@@ -1,5 +1,5 @@
 <?php
-// app/Http/Controllers/Auth/LoginController.php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -17,13 +17,13 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) {    
             return redirect()->intended('home');
-        }
-
+        }       
+        
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+            'email' => 'Email atau password yang Anda masukkan salah.',
+        ])->withInput();
     }
 
     public function logout(Request $request)

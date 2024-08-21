@@ -270,13 +270,13 @@
                 <div class="overflow-hidden">
                     <div id="linkpropsdiv"
                         class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
-                        <div class="grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb gap-3">
+                        <div class="grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3">
                             <input type="text"
                                 class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                placeholder="Enter text" id="textInput">
+                                placeholder="Enter link" id="urlInput">
                             <input type="text"
                                 class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                placeholder="Enter link" id="urlInput">
+                                placeholder="Enter text" id="textInput">
                             <button class="items-center justify-center flex-grow col-span-1"
                                 onclick="addLinkButton()">
                                 <i
@@ -289,11 +289,11 @@
                                     data-id="{{ $index }}">
                                     <input type="text"
                                         class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                        value="{{ $linkButton->text }}" data-url="{{ $linkButton->url }}"
+                                        value="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <input type="text"
                                         class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                        value="{{ $linkButton->url }}"
+                                        value="{{ $linkButton->text }}" data-url="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <button class="items-center justify-center flex-grow col-span-1"
                                         onclick="removeLinkButton(this, {{ $index }})">
@@ -338,9 +338,6 @@
                         <x-button class="w-full py-2 text-white bg-gradient-to-tr from-gray-900 to-slate-700"
                             onclick="changeBackground('linear-gradient(to top right, #1F2937, #6B7280'), changeFontWhite()">
                             Dark-Gray </x-button>
-                        {{-- <x-button
-                            class="w-full py-2 bg-gradient-to-tr from-purple-700 to-purple-700 dark:from-orange-500 dark:to-orange-500" id="custombgbtn"
-                            onclick="openWarna()">Custom </x-button> --}}
                     </div>
                     <p class="text-black dark:text-white font-semibold mt-3">Atau</p>
                     <div id="modalWarna" class="items-center justify-center mt-3 bg-opacity-75">
@@ -598,20 +595,21 @@
                             </div>
                         </div>
                         <div class="mt-2 ml-2">
-                                <label for="btnfc" class="block mb-2 font-semibold text-black dark:text-white"> Font Color
-                                    <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
-                                        id="btnfc-label">
-                                        <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
+                            <label for="btnfc" class="block mb-2 font-semibold text-black dark:text-white"> Font
+                                Color
+                                <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
+                                    id="btnfc-label">
+                                    <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
                                         class="h-12 bg-transparent w-28"
-                                        oninput="changebtnclr(); readInputColor('btnfc-label','btnfc')">    
-                                        <p id="btnfc"
-                                            class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
-                                            #color
-                                        </p>
-                                    </div>
-                                </label>
-                                
-                            </div>                     
+                                        oninput="changebtnclr(); readInputColor('btnfc-label','btnfc')">
+                                    <p id="btnfc"
+                                        class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                        #color
+                                    </p>
+                                </div>
+                            </label>
+
+                        </div>
                     </div>
                 </div>
             </div>

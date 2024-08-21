@@ -39,13 +39,13 @@ class ChangePassController extends Controller
         if (Hash::check($oldpassword, $user->password)) {
             $user->password = bcrypt($newpassword);
             try {
-                $user->save();
-                return redirect()->route('home')->with('success', 'Selamat anda berhasil ubah password');
+                $user->save();                
+                return redirect()->route('changepass')->with('success', 'Selamat anda berhasil ubah password');
             } catch (\Exception $e) {
                 return redirect()->route('changepass')->with('failed', 'Anda gagal mengubah password');
             }
         } else {
             return redirect()->route('changepass')->with('failed', 'Anda salah memasukkan password lama');
-        }
+        }        
     }
 }

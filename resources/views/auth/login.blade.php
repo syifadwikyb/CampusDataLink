@@ -41,50 +41,48 @@
     <div class="flex items-center justify-center min-h-screen" data-aos="flip-right"
         data-aos-duration="1000">
         <form class="p-10 rounded-lg shadow-2xl lg:p-16 md:p-10 bg-customgradient3 dark:bg-customgradient1"
-            method="POST" action="{{ route('login') }}">
-            @csrf
-            <h1 class="mb-5 text-4xl font-bold leading-6 text-center text-white lg:text-5xl font-montserrat">Login
-            </h1>
-            <p class="mb-5 text-base font-bold leading-6 text-center text-white lg:text-2xl md:text-xl sm:text-lg">
-                Login Your Account</p>
-            <div class="mb-2 sm:col-span-4">
-                <label for="email" class="block text-base font-bold leading-6 text-white lg:text-lg">Email</label>
-                <div class="mt-2">
-                    <div class="flex shadow-sm">
-                        <input type="email" name="email" id="email" autocomplete="email"
-                            class="flex-1 px-5 py-3 font-semibold text-black bg-white rounded-lg placeholder:text-abu focus:outline-none sm:text-base sm:leading-6"
-                            @if (@isset($_COOKIE['email'])) value="{{ $_COOKIE['email'] }}" @endif
-                            placeholder="Masukkan email">
-                    </div>
-                </div>
-                @error('email')
-                    <small class="text-rose-500">{{ $message }}</small>
-                @enderror
+      method="POST" action="{{ route('login') }}">
+    @csrf
+    <h1 class="mb-5 text-4xl font-bold leading-6 text-center text-white lg:text-5xl font-montserrat">Login</h1>
+    <p class="mb-5 text-base font-bold leading-6 text-center text-white lg:text-2xl md:text-xl sm:text-lg">
+        Login Your Account</p>
+    <div class="mb-2 sm:col-span-4">
+        <label for="email" class="block text-base font-bold leading-6 text-white lg:text-lg">Email</label>
+        <div class="mt-2">
+            <div class="flex shadow-sm">
+                <input type="email" name="email" id="email" autocomplete="email"
+                       class="flex-1 px-5 py-3 font-semibold text-black bg-white rounded-lg placeholder:text-abu focus:outline-none sm:text-base sm:leading-6"
+                       value="{{ old('email') }}"
+                       placeholder="Masukkan email">
             </div>
-            <div class="sm:col-span-4">
-                <label for="password" class="block text-base font-bold leading-6 text-white lg:text-lg">Password</label>
-                <div class="mt-2">
-                    <div class="flex shadow-sm">
-                        <input type="password" name="password" id="password" autocomplete="password"
-                            class="flex-1 px-5 py-3 font-semibold text-black bg-white rounded-l-xl placeholder:text-abu focus:outline-none sm:text-base sm:leading-6"
-                            @if (@isset($_COOKIE['password'])) value="{{ $_COOKIE['password'] }}" @endif
-                            placeholder="Masukkan password">
-                        <span
-                            class="px-5 py-3 text-black bg-white cursor-pointer icon-eye rounded-r-xl dark:text-orange-500"
-                            onclick="togglePasswordVisibility()">
-                            <i class="fas fa-eye"></i>
-                        </span>
-                    </div>
-                </div>
-                @error('password')
-                    <small class="text-rose-500">{{ $message }}</small>
-                @enderror
+        </div>
+        @error('email')
+            <small class="text-rose-500">{{ $message }}</small>
+        @enderror
+    </div>
+    <div class="sm:col-span-4">
+        <label for="password" class="block text-base font-bold leading-6 text-white lg:text-lg">Password</label>
+        <div class="mt-2">
+            <div class="flex shadow-sm">
+                <input type="password" name="password" id="password" autocomplete="current-password"
+                       class="flex-1 px-5 py-3 font-semibold text-black bg-white rounded-l-xl placeholder:text-abu focus:outline-none sm:text-base sm:leading-6"
+                       placeholder="Masukkan password">
+                <span class="px-5 py-3 text-black bg-white cursor-pointer icon-eye rounded-r-xl dark:text-orange-500"
+                      onclick="togglePasswordVisibility()">
+                    <i class="fas fa-eye"></i>
+                </span>
             </div>
-            <button
-                class="w-full px-5 py-3 mt-10 font-bold text-center text-white bg-purple-900 rounded-lg hover:bg-purple-700 dark:bg-orange-500 dark:hover:bg-orange-700">
-                Login
-            </button>
-        </form>
+        </div>
+        @error('password')
+            <small class="text-rose-500">{{ $message }}</small>
+        @enderror
+    </div>
+    <button
+        class="w-full px-5 py-3 mt-10 font-bold text-center text-white bg-purple-900 rounded-lg hover:bg-purple-700 dark:bg-orange-500 dark:hover:bg-orange-700">
+        Login
+    </button>
+</form>
+
     </div>
 </body>
 
@@ -97,11 +95,4 @@
 <script>
     AOS.init();
 </script>
-
-@if ($message = Session::get('failed'))
-    <script>
-        Swal.fire("{{ $message }}");
-    </script>
-@endif
-
 </html>

@@ -1,5 +1,5 @@
 <?php
-// app/Http/Controllers/Auth/RegisterController.php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -34,6 +34,10 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ], [        
+            'email.unique' => 'Email ini sudah terdaftar. Silakan gunakan email lain.',
+            'password.confirmed' => 'Konfirmasi password tidak sesuai dengan password.',
+            'password.min' => 'Password harus memiliki minimal 8 karakter.',
         ]);
     }
 

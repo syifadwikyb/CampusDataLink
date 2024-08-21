@@ -21,23 +21,23 @@
             <div id="dropdown-menu"
                 class="flex-col hidden p-4 text-sm border-indigo-100 md:block md:sticky lg:flex top-20 absolute lg:ralative right-0 w-48 md:w-full lg:w-full bg-indigo-50 dark:bg-slate-800 md:bg-none lg:bg-none rounded-lg">
                 <a href="{{ route('profile.show') }}"
-                    class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
+                    class="mb-1 flex justify-center md:justify-start lg:justify-start rounded-lg p-2 w-full font-bold hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
                     Profile
                 </a>
                 <a href="{{ route('changepass') }}"
-                    class="mb-1 flex rounded-lg p-2 w-full font-bold  text-white bg-purple-700 dark:bg-orange-500 dark:text-white">
+                    class="mb-1 flex justify-center md:justify-start lg:justify-start rounded-lg p-2 w-full font-bold text-white bg-purple-700 dark:bg-orange-500 dark:text-white">
                     Change Password
                 </a>
-                <a href="javascript:history.back()"
-                    class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
+                <a href="{{ route('home') }}"
+                    class="mb-1 flex justify-center md:justify-start lg:justify-start rounded-lg p-2 w-full font-bold hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
                     Kembali
                 </a>
             </div>
         </aside>
         <div class="min-h-screen py-1 md:w-2/3 lg:w-3/4">
             <div class="p-2 md:p-4">
-                <div class="px-6 pb-8 sm:rounded-lg">
-                    <h2 class="text-black dark:text-white pl-6 text-2xl font-bold sm:text-xl">Public Profile</h2>
+                <div class="px-6 pb-8 mt-8 sm:rounded-lg">
+                    <h2 class="text-black dark:text-white pl-6 text-2xl font-bold sm:text-xl">Change Password</h2>
                     <form class="mt-8" action="{{ route('changepass-proses') }}" method="post">
                         @csrf
                         <div class="mb-2 sm:col-span-4">
@@ -115,6 +115,7 @@
     </div>
 </body>
 <x-darkmode></x-darkmode>
+<x-footer></x-footer>
 @vite('resources/js/dropdown.js')
 <script>
     function togglePasswordVisibility(inputId) {
@@ -150,10 +151,34 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-@if ($message = Session::get('failed'))
+@if ($message = Session::get('success'))
     <script>
-        Swal.fire("{{ $message }}");
+        Swal.fire({
+            title: "Berhasil!",
+            text: "{{ $message }}",
+            icon: "success",
+            background: '#f0f0f0',
+            confirmButtonColor: '#3085d6',
+            customClass: {
+                popup: 'colored-alert'
+            }
+        });
     </script>
 @endif
+@if ($message = Session::get('failed'))
+    <script>
+        Swal.fire({
+            title: "Gagal!",
+            text: "{{ $message }}",
+            icon: "error", // 
+            background: '#f0f0f0',            
+            confirmButtonColor: '#d33',
+            customClass: {
+                popup: 'colored-alert'
+            }
+        });
+    </script>
+@endif
+
 
 </html>

@@ -13,6 +13,7 @@
 </head>
 
 <x-header2></x-header2>
+
 <body class="bg-white dark:bg-slate-900 font-montserrat">
     <div class="container mx-auto mt-8 xl:flex">
         {{-- Area Kustomisasi --}}
@@ -56,8 +57,8 @@
                         <div class="hidden" id="socialButtonsContainer"></div>
                         {{-- Link Tombol --}}
                         <div class="hidden" id="linkButtonsContainer"></div>
-                        <button class="p-2 px-4 font-bold text-white bg-green-500 rounded-lg hover:bg-green-700" type="submit"
-                            onclick="setProps()">Simpan Perubahan</button>
+                        <button class="p-2 px-4 font-bold text-white bg-green-500 rounded-lg hover:bg-green-700"
+                            type="submit" onclick="setProps()">Simpan Perubahan</button>
                     </form>
                 </div>
             </x-customization-box>
@@ -418,11 +419,11 @@
 
             const linkInputs = document.getElementById('linkInputs');
             const linkInputItem = createElement('div',
-                'grid grid-cols-6 mb-2 space-x-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item');
+                'grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3');
             linkInputItem.setAttribute('data-id', id);
 
             const inputElement = createElement('input',
-                'flex-grow h-full col-span-3 p-2 bg-transparent border border-gray-300 rounded-lg sm:col-span-5 lg:col-span-10',
+                'flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5',
                 url);
             inputElement.setAttribute('data-icon', iconClass);
             inputElement.addEventListener('input', function() {
@@ -430,7 +431,7 @@
             });
 
             const iconDropdown = createElement('select',
-                'flex-grow h-full col-span-2 p-2 bg-transparent border border-gray-300 rounded-lg sm:col-span-4 lg:col-span-5 icon-select'
+                'flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5 icon-select'
             );
             iconDropdown.innerHTML = document.getElementById('newIconSelect').innerHTML;
             iconDropdown.value = iconClass;
@@ -544,25 +545,25 @@
 
             // Create the link input item container
             const linkInputItem = document.createElement('div');
-            linkInputItem.className = 'grid grid-cols-6 mb-2 space-x-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item';
+            linkInputItem.className = 'grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3';
             linkInputItem.setAttribute('data-id', id);
-
-            // Create the text input element
-            const textElement = document.createElement('input');
-            textElement.className =
-                'flex-grow h-full col-span-2 p-2 bg-transparent border border-gray-300 rounded-lg sm:col-span-4 lg:col-span-7';
-            textElement.value = text;
-            textElement.dataset.url = url;
-            textElement.addEventListener('input', function() {
-                updateLinkButton(id);
-            });
 
             // Create the URL input element
             const urlElement = document.createElement('input');
             urlElement.className =
-                'flex-grow h-full col-span-3 p-2 bg-transparent border border-gray-300 rounded-lg sm:col-span-5 lg:col-span-8';
+                'flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5';
             urlElement.value = url;
             urlElement.addEventListener('input', function() {
+                updateLinkButton(id);
+            });
+
+            // Create the text input element
+            const textElement = document.createElement('input');
+            textElement.className =
+                'flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5';
+            textElement.value = text;
+            textElement.dataset.url = url;
+            textElement.addEventListener('input', function() {
                 updateLinkButton(id);
             });
 
@@ -573,7 +574,7 @@
             deleteButton.onclick = () => removeLinkButton(deleteButton, id);
 
             // Append text input, URL input, and delete button to the link input item
-            linkInputItem.append(textElement, urlElement, deleteButton);
+            linkInputItem.append(urlElement, textElement, deleteButton);
             linkContainer.appendChild(linkInputItem);
 
             // Create the button wrapper

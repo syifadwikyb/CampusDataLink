@@ -17,7 +17,6 @@ class UserController extends Controller
     return view('profile', compact('user'));
 }
 
-
     // Update profile information
     public function update(Request $request)
     {
@@ -37,7 +36,7 @@ class UserController extends Controller
         $user->phone_number = $request->input('phone_number');
         $user->save();
 
-        return redirect()->route('profile.show')->with('success', 'Profile updated successfully.');
+        return redirect()->route('profile.show')->with('success', 'Profil berhasil di update');
     }
 
     // Change profile picture

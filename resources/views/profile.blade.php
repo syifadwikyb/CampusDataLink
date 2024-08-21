@@ -20,6 +20,20 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
         rel="stylesheet">
+
+    <style>
+        /* Custom CSS to hide the spinner */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+    </style>
 </head>
 
 <body class="bg-white dark:bg-slate-900 font-montserrat">
@@ -33,15 +47,15 @@
             <div id="dropdown-menu"
                 class="absolute right-0 flex-col hidden w-48 p-4 text-sm border-indigo-100 rounded-lg md:block md:sticky lg:flex top-20 lg:ralative md:w-full lg:w-full bg-indigo-50 dark:bg-slate-800 md:bg-none lg:bg-none">
                 <a href="{{ route('profile.show') }}"
-                    class="flex w-full p-2 mb-1 font-bold text-white bg-purple-700 rounded-lg dark:bg-orange-500 dark:text-white">
+                    class="flex justify-center md:justify-start lg:justify-start w-full p-2 mb-1 font-bold text-white bg-purple-700 rounded-lg dark:bg-orange-500 dark:text-white">
                     Profile
                 </a>
                 <a href="{{ route('changepass') }}"
-                    class="flex w-full p-2 mb-1 font-bold rounded-lg hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
+                    class="flex justify-center md:justify-start lg:justify-start w-full p-2 mb-1 font-bold rounded-lg hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
                     Change Password
                 </a>
                 <a href="{{ route('home') }}"
-                    class="flex w-full p-2 mb-1 font-bold rounded-lg hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
+                    class="flex justify-center md:justify-start lg:justify-start w-full p-2 mb-1 font-bold rounded-lg hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">
                     Kembali
                 </a>
             </div>
@@ -50,7 +64,6 @@
             <div class="p-2 md:p-4">
                 <div class="px-6 pb-8 mt-8 sm:rounded-lg">
                     <h2 class="pl-6 text-2xl font-bold text-black dark:text-white sm:text-xl">Public Profile</h2>
-
                     <div class="grid mx-auto mt-8">
                         <div class="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
                             <img id="profileImage" class="object-cover w-40 h-40 p-1 rounded-full"
@@ -88,7 +101,7 @@
                                             Full Name</label>
                                         <input type="text" id="first_name" name="name"
                                             value="{{ old('name', Auth::user()->name) }}"
-                                            class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
+                                            class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 focus:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                             placeholder="Your full name" required>
                                     </div>
                                 </div>
@@ -104,17 +117,18 @@
 
                                 <div class="mb-2 sm:mb-6">
                                     <label for="phone_number"
-                                        class="block mb-2 text-sm font-semibold text-black dark:text-white">Phone
-                                        Number</label>
-                                    <input type="text" id="phone_number" name="phone_number"
+                                        class="block mb-2 text-sm font-semibold text-black dark:text-white">
+                                        Phone Number
+                                    </label>
+                                    <input type="number" id="phone_number" name="phone_number"
                                         value="{{ old('phone_number', Auth::user()->phone_number) }}"
-                                        class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
+                                        class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 focus:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                         placeholder="Your phone number">
                                 </div>
 
                                 <div class="flex justify-end">
                                     <button type="submit"
-                                        class="mt-5 text-white bg-green-600 hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-800 focus:outline-none font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Save</button>
+                                        class="remove-arrow mt-5 text-white bg-green-600 hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-800 focus:outline-none font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Save</button>
                                 </div>
                             </form>
                         </div>
@@ -175,5 +189,21 @@
 </body>
 <x-footer></x-footer>
 @vite('resources/js/dropdown.js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if ($message = Session::get('success'))
+    <script>
+        Swal.fire({
+            title: "Berhasil!",
+            text: "{{ $message }}",
+            icon: "success",
+            background: '#f0f0f0',
+            confirmButtonColor: '#3085d6',
+            customClass: {
+                popup: 'colored-alert'
+            }
+        });
+    </script>
+@endif
 
 </html>

@@ -50,15 +50,12 @@
                     Name</label>
                 <div class="mt-2">
                     <div class="flex shadow-sm">
-                        <input type="text" name="name" id="name" value="{{ old('email') }}"
+                        <input type="text" name="name" id="name" value="{{ old('name') }}"
                             autocomplete="name"
                             class="flex-1 px-5 py-3 font-semibold rounded-lg bg-white text-black placeholder:text-abu focus:outline-none sm:text-base sm:leading-6 dark:bg-white dark:text-black"
                             placeholder="Masukkan nama lengkap">
                     </div>
                 </div>
-                @error('email')
-                    <small class="text-white">{{ $message }}</small>
-                @enderror
             </div>
             <div class="mb-2 sm:col-span-4">
                 <label for="username"
@@ -71,7 +68,7 @@
                     </div>
                 </div>
                 @error('username')
-                    <small class="text-white">{{ $message }}</small>
+                    <small class="text-red-500">{{ $message }}</small>
                 @enderror
             </div>
             <div class="mb-2 sm:col-span-4">
@@ -86,7 +83,7 @@
                     </div>
                 </div>
                 @error('email')
-                    <small class="text-white">{{ $message }}</small>
+                    <small class="text-red-500">{{ $message }}</small>
                 @enderror
             </div>
 
@@ -104,7 +101,7 @@
                         </span>
                     </div>
                     @error('password')
-                        <small class="text-white">{{ $message }}</small>
+                        <small class="text-red-500">{{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -120,7 +117,7 @@
                             placeholder="Confirm password">
                     </div>
                     @error('password')
-                        <small class="text-white">{{ $message }}</small>
+                        <small class="text-red-500">{{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -139,17 +136,5 @@
 <script>
     AOS.init();
 </script>
-
-@if ($message = Session::get('failed'))
-    <script>
-        Swal.fire("{{ $message }}");
-    </script>
-@endif
-
-@if ($message = Session::get('success'))
-    <script>
-        Swal.fire("{{ $message }}");
-    </script>
-@endif
 
 </html>
