@@ -123,9 +123,10 @@
                                     <input type="number" id="phone_number" name="phone_number"
                                         value="{{ old('phone_number', Auth::user()->phone_number) }}"
                                         class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 focus:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                        placeholder="Your phone number">
-                                </div>
+                                        placeholder="Your phone number"
+                                        oninput="this.value = this.value.slice(0, 15);">
 
+                                </div>
                                 <div class="flex justify-end">
                                     <button type="submit"
                                         class="remove-arrow mt-5 text-white bg-green-600 hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-800 focus:outline-none font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Save</button>
@@ -185,10 +186,18 @@
             console.log("Toggle Menu Clicked");
             menu.toggle('hidden');
         }
+        document.getElementById('bars-icon').addEventListener('click', function(event) {
+            event.stopPropagation();
+            var dropdown = document.getElementById('dropdown-menu');
+            dropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(event) {
+            var dropdown = document.getElementById('dropdown-menu');
+        });
     </script>
 </body>
 <x-footer></x-footer>
-@vite('resources/js/dropdown.js')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @if ($message = Session::get('success'))

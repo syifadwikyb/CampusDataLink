@@ -13,8 +13,8 @@ class HomeController extends Controller
     public function index()
     {
         // Retrieve the customization for the authenticated user
+        $user = collect();$user = Auth::user();
         $customization = Customization::where('user_id', Auth::id())->first();
-
         // If customization exists, get the related social and link buttons
         if ($customization) {
             $socialButtons = SocialButton::where('customization_id', $customization->id)->get();
@@ -25,7 +25,7 @@ class HomeController extends Controller
             $linkButtons = collect();
         }
 
-        return view('home', compact('customization', 'socialButtons', 'linkButtons'));
+        return view('home', compact('customization', 'socialButtons', 'linkButtons','user'));
     }
 }
 
