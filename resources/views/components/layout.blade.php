@@ -91,25 +91,25 @@
             <div class="relative w-full sm:w-4/5 max-w-7xl overflow-hidden">
                 <div class="flex transition-transform duration-500 ease-linear" id="slider-track">
                     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 flex justify-center cursor-pointer">
-                        <img src="{{ asset('asset/haha.svg') }}" alt="Image1" class="w-28 md:w-1/2 lg:w-3/4">
+                        <img src="{{ asset('asset/template1.png') }}" alt="Image1" class="w-28 md:w-1/2 lg:w-3/4">
                     </div>
                     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 flex justify-center cursor-pointer">
-                        <img src="{{ asset('asset/haha.svg') }}" alt="Image2" class="w-28 md:w-1/2 lg:w-3/4">
+                        <img src="{{ asset('asset/template1.png') }}" alt="Image2" class="w-28 md:w-1/2 lg:w-3/4">
                     </div>
                     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 flex justify-center cursor-pointer">
-                        <img src="{{ asset('asset/haha.svg') }}" alt="Image3" class="w-28 md:w-1/2 lg:w-3/4">
+                        <img src="{{ asset('asset/template1.png') }}" alt="Image3" class="w-28 md:w-1/2 lg:w-3/4">
                     </div>
                     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 flex justify-center cursor-pointer">
-                        <img src="{{ asset('asset/haha.svg') }}" alt="Image4" class="w-28 md:w-1/2 lg:w-3/4">
+                        <img src="{{ asset('asset/template1.png') }}" alt="Image4" class="w-28 md:w-1/2 lg:w-3/4">
                     </div>
                     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 flex justify-center cursor-pointer">
-                        <img src="{{ asset('asset/haha.svg') }}" alt="Image5" class="w-28 md:w-1/2 lg:w-3/4">
+                        <img src="{{ asset('asset/template1.png') }}" alt="Image5" class="w-28 md:w-1/2 lg:w-3/4">
                     </div>
                     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 flex justify-center cursor-pointer">
-                        <img src="{{ asset('asset/haha.svg') }}" alt="Image6" class="w-28 md:w-1/2 lg:w-3/4">
+                        <img src="{{ asset('asset/template1.png') }}" alt="Image6" class="w-28 md:w-1/2 lg:w-3/4">
                     </div>
                     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 flex justify-center cursor-pointer">
-                        <img src="{{ asset('asset/haha.svg') }}" alt="Image7" class="w-28 md:w-1/2 lg:w-3/4">
+                        <img src="{{ asset('asset/template1.png') }}" alt="Image7" class="w-28 md:w-1/2 lg:w-3/4">
                     </div>
                 </div>
             </div>

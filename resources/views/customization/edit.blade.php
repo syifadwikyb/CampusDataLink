@@ -502,7 +502,7 @@
             @endforeach
         });
 
-        function createExistingLinkButton(text, url, id) {
+        function createExistingLinkButton(url, text, id) {
             const linkContainer = document.getElementById('buttonContainer');
 
             // Create the outer div for the button

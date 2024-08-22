@@ -276,7 +276,7 @@
                                 placeholder="Enter link" id="urlInput">
                             <input type="text"
                                 class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                               maxlength="20"  placeholder="Enter text" id="textInput">
+                                maxlength="20" placeholder="Enter text" id="textInput">
                             <button class="items-center justify-center flex-grow col-span-1"
                                 onclick="addLinkButton()">
                                 <i
@@ -289,11 +289,11 @@
                                     data-id="{{ $index }}">
                                     <input type="text"
                                         class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                        value="{{ $linkButton->url }}"
+                                        value="{{ $linkButton->text }}" data-url="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <input type="text"
                                         class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                        value="{{ $linkButton->text }}" data-url="{{ $linkButton->url }}"
+                                        value="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <button class="items-center justify-center flex-grow col-span-1"
                                         onclick="removeLinkButton(this, {{ $index }})">
@@ -559,8 +559,8 @@
                                                 class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
                                                 #color1
                                             </p>
-                                            <input type="color" class="opacity-0 size-0"
-                                                id="btnf1" value="#ffffff" class="h-12 bg-transparent w-28"
+                                            <input type="color" class="opacity-0 size-0" id="btnf1"
+                                                value="#ffffff" class="h-12 bg-transparent w-28"
                                                 oninput="changebtnclr(); readInputColor('btnf1-label','btnf1'); changehexcode('colorbtn1', 'btnf1');">
                                         </div>
                                     </label>
@@ -573,8 +573,8 @@
                                                 class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
                                                 #color2
                                             </p>
-                                            <input type="color" class="opacity-0 size-0"
-                                                id="btnf2" value="#ffffff" class="h-12 bg-transparent w-28"
+                                            <input type="color" class="opacity-0 size-0" id="btnf2"
+                                                value="#ffffff" class="h-12 bg-transparent w-28"
                                                 oninput="changebtnclr(); readInputColor('btnf2-label','btnf2'); changehexcode('colorbtn2', 'btnf2');">
                                         </div>
                                     </label>
