@@ -31,6 +31,9 @@
                 @if ($customization->banner)
                     <img class="object-cover h-[190px] w-full" src="{{ asset('storage/' . $customization->banner) }}"
                         id="bannerPreview" alt="Banner">
+                @else
+                    <img class="object-cover h-[190px] w-full" id="bannerPreview"
+                        src="https://cdn.pixabay.com/photo/2018/03/15/08/54/grid-3227459_1280.jpg" alt="Banner">
                 @endif
             </div>
             <div>
@@ -38,6 +41,10 @@
                     @if ($customization->profile)
                         <img class="object-cover w-24 h-24 -mt-12 rounded-full text-bold"
                             src="{{ asset('storage/' . $customization->profile) }}" id="profilePreview" alt="Profile">
+                    @else
+                        <img class="object-cover w-24 h-24 -mt-12 rounded-full text-bold"
+                            src="https://cdn.pixabay.com/photo/2018/03/15/08/54/grid-3227459_1280.jpg"
+                            id="profilePreview" alt="Profile">
                     @endif
                 </div>
                 <h1 class="mb-2 text-xl font-bold text-center break-words whitespace-normal Title" id="titlePreview">
@@ -55,8 +62,8 @@
                     @foreach ($linkButtons as $index => $linkButton)
                         <div class="mb-2 link-button-wrapper" data-id="{{ $index }}">
                             <div class="z-20 mx-auto w-[390px] h-[70px] flex items-center justify-center">
-                                <a class="z-20 text-center link-buttons"
-                                    href="{{ $linkButton->url }}" style="color:{{ $customization->display_btn_fontc }}">{{ $linkButton->text }}</a>
+                                <a class="z-20 text-center link-buttons" href="{{ $linkButton->url }}"
+                                    style="color:{{ $customization->display_btn_fontc }}">{{ $linkButton->text }}</a>
                             </div>
                             <div class="{{ $customization->display_btn_prop }}"
                                 style="background: {{ $customization->display_btn_style }}">

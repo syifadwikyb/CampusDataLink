@@ -73,7 +73,6 @@
                         style="z-index: -4; overflow-y: auto ;{{ $customization->display_preview_bg }} {{ $customization->display_preview_fc }}"
                         id="displayPreview">
                         <div class="bg-gray-200">
-                            <div class="bg-gray-200">
                                 @if ($customization->banner)
                                     <img class="object-cover h-[190px] w-full"
                                         src="{{ asset('storage/' . $customization->banner) }}" id="bannerPreview"
@@ -83,7 +82,6 @@
                                         src="https://cdn.pixabay.com/photo/2018/03/15/08/54/grid-3227459_1280.jpg"
                                         alt="Banner">
                                 @endif
-                            </div>
                         </div>
                         <div>
                             <div class="w-24 mx-auto bg-gray-600 rounded-full">
