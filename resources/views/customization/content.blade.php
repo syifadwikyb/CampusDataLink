@@ -74,6 +74,9 @@
             </div>
         </div>
     </div>
+    <p class="text-center text-black dark:text-white font-semibold bottom-0 w-full">
+        Powered by Campus Digital
+    </p>
+    
 </body>
-
 </html>
