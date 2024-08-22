@@ -505,39 +505,33 @@
         function createExistingLinkButton(url, text, id) {
             const linkContainer = document.getElementById('buttonContainer');
 
-            // Create the outer div for the button
             const outerDiv = document.createElement('div');
             outerDiv.className = 'z-20 mx-auto w-[390px] h-[70px] flex items-center justify-center';
             outerDiv.setAttribute('data-id', id);
 
-            // Create the anchor element for the button
             const linkButton = document.createElement('a');
             linkButton.className = 'text-center link-buttons';
             linkButton.href = url;
             linkButton.textContent = text;
             outerDiv.appendChild(linkButton);
 
-            // Create the inner div with styles from an example button
             const btnExample = document.querySelector('.btnstyle');
             const innerDiv = document.createElement('div');
             innerDiv.className = btnExample.className;
             innerDiv.style.backgroundImage = btnExample.style.backgroundImage;
 
-            // Append the outer and inner divs to the button wrapper
             const buttonWrapper = document.createElement('div');
             buttonWrapper.className = 'mb-2 link-button-wrapper';
             buttonWrapper.setAttribute('data-id', id);
             buttonWrapper.appendChild(outerDiv);
             buttonWrapper.appendChild(innerDiv);
 
-            // Create delete button for existing link button
             const deleteButton = document.createElement('button');
             deleteButton.className = 'items-center justify-center flex-grow col-span-1';
             deleteButton.innerHTML = '<i class="block py-2 text-white bg-red-500 rounded-lg bi bi-trash"></i>';
             deleteButton.onclick = () => removeLinkButton(deleteButton, id);
             buttonWrapper.appendChild(deleteButton);
 
-            // Append the button wrapper to the button container
             linkContainer.appendChild(buttonWrapper);
         }
 
@@ -557,12 +551,10 @@
             const linkContainer = document.getElementById('linkContainers');
             const buttonContainer = document.getElementById('buttonContainer');
 
-            // Create the link input item container
             const linkInputItem = document.createElement('div');
             linkInputItem.className = 'grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3';
             linkInputItem.setAttribute('data-id', id);
 
-            // Create the URL input element
             const urlElement = document.createElement('input');
             urlElement.className =
                 'flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5';
@@ -571,7 +563,6 @@
                 updateLinkButton(id);
             });
 
-            // Create the text input element
             const textElement = document.createElement('input');
             textElement.className =
                 'flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5';
@@ -581,27 +572,22 @@
                 updateLinkButton(id);
             });
 
-            // Create the delete button element
             const deleteButton = document.createElement('button');
             deleteButton.className = 'items-center justify-center flex-grow col-span-1';
             deleteButton.innerHTML = '<i class="block py-2 text-white bg-red-500 rounded-lg bi bi-trash"></i>';
             deleteButton.onclick = () => removeLinkButton(deleteButton, id);
 
-            // Append text input, URL input, and delete button to the link input item
             linkInputItem.append(urlElement, textElement, deleteButton);
             linkContainer.appendChild(linkInputItem);
 
-            // Create the button wrapper
             const buttonWrapper = document.createElement('div');
             buttonWrapper.className = 'mb-2 link-button-wrapper';
             buttonWrapper.setAttribute('data-id', id);
 
-            // Create the outer div for the button
             const outerDiv = document.createElement('div');
             outerDiv.className = 'z-20 mx-auto w-[390px] h-[70px] flex items-center justify-center';
             outerDiv.setAttribute('data-id', id);
 
-            // Create the anchor element for the button
             const linkButton = document.createElement('a');
             linkButton.className = 'text-center link-buttons z-20';
             linkButton.href = url;
@@ -613,16 +599,9 @@
                 linkButton.style.color = 'dark';
             }
             outerDiv.appendChild(linkButton);
-
-            // Create the inner div with styles from an example button
-            // Try to find the button element
             const btnExample = document.querySelector('.btnstyle');
-
-
-            // Create a new div element
             const innerDiv = document.createElement('div');
 
-            // Check if btnExample is found
             if (btnExample) {
                 innerDiv.className = btnExample.className;
                 const btnExampleStyle = btnExample.style.backgroundImage;
@@ -631,26 +610,18 @@
                 } else {
                     innerDiv.style.backgroundImage =
                         'linear-gradient(45deg, #666666, #999999);';
-
                 }
             } else {
-                // If btnExample is not found, set default values
-                innerDiv.className = 'box mb-2 -mt-[86.6px] btnstyle'; // Replace with your default class
-                // Replace with your default background image
+                innerDiv.className = 'box mb-2 -mt-[86.6px] btnstyle'; 
                 innerDiv.style.backgroundImage =
                     'linear-gradient(45deg, #666666, #999999)';
 
             }
-
-            // Optionally, append innerDiv to the document body or another element
             document.body.appendChild(innerDiv);
 
-
-            // Append the outer and inner divs to the button wrapper
             buttonWrapper.appendChild(outerDiv);
             buttonWrapper.appendChild(innerDiv);
 
-            // Append the button wrapper to the button container
             buttonContainer.appendChild(buttonWrapper);
         }
 
@@ -658,8 +629,8 @@
             const linkInputItem = document.querySelector(`#linkContainers .link-input-item[data-id="${id}"]`);
             if (!linkInputItem) return;
 
-            const textElement = linkInputItem.querySelector('input:nth-child(1)');
-            const urlElement = linkInputItem.querySelector('input:nth-child(2)');
+            const textElement = linkInputItem.querySelector('input:nth-child(2)');
+            const urlElement = linkInputItem.querySelector('input:nth-child(1)');
             const newText = textElement.value.trim();
             const newUrl = urlElement.value.trim();
 
@@ -677,14 +648,12 @@
         }
 
         function removeLinkButton(button, id) {
-            // Remove from front-end
             const linkInputItem = document.querySelector(`#linkContainers .link-input-item[data-id="${id}"]`);
             if (linkInputItem) linkInputItem.remove();
 
             const buttonWrapper = document.querySelector(`#buttonContainer .link-button-wrapper[data-id="${id}"]`);
             if (buttonWrapper) buttonWrapper.remove();
 
-            // Make an AJAX call to remove the entry from the database
             fetch(`/remove-link-button/${id}`, {
                     method: 'DELETE',
                     headers: {

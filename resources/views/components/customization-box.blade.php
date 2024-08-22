@@ -101,11 +101,11 @@
                     class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <p class="hidden mx-auto my-auto text-sm font-white text-center text-gray-400 md:block">
+                            <p class="hidden mx-auto my-auto text-sm text-center text-gray-400 font-white md:block">
                                 Ukuran
                                 optimal 800 x 400px, 1:2</p>
                             <label for="bannerFileInput"
-                                class="w-full p-2 text-center text-white rounded cursor-pointer bg-purple-700 dark:bg-orange-500 md:w-auto">Upload</label>
+                                class="w-full p-2 text-center text-white bg-purple-700 rounded cursor-pointer dark:bg-orange-500 md:w-auto">Upload</label>
                         </div>
                     </div>
                 </div>
@@ -118,11 +118,11 @@
                     class="bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5">
                     <div class="flex flex-col justify-end h-full p-2 space-y-2 mb" action="">
                         <div class="flex justify-center md:space-x-2 md:justify-end">
-                            <p class="hidden mx-auto my-auto text-sm font-white text-center text-gray-400 md:block">
+                            <p class="hidden mx-auto my-auto text-sm text-center text-gray-400 font-white md:block">
                                 Ukuran
                                 optimal 400 x 400px, 1:1</p>
                             <label for="profileFileInput"
-                                class="w-full p-2 text-center text-white rounded cursor-pointer bg-purple-700 dark:bg-orange-500 md:w-auto">Upload</label>
+                                class="w-full p-2 text-center text-white bg-purple-700 rounded cursor-pointer dark:bg-orange-500 md:w-auto">Upload</label>
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                 <div class="overflow-hidden">
                     <div id="socialmediapropsdiv"
                         class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
-                        <div class="grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb gap-3">
+                        <div class="grid grid-cols-6 gap-3 mb-2 sm:grid-cols-10 lg:grid-cols-cb">
                             <input type="text" id="newLinkInput"
                                 class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                 placeholder="Enter Link">
@@ -186,12 +186,12 @@
                             </select>
                             <button onclick="generateLinkInput()">
                                 <i
-                                    class="block py-2 text-white rounded-lg bg-purple-700 dark:bg-orange-500 bi bi-plus-lg"></i>
+                                    class="block py-2 text-white bg-purple-700 rounded-lg dark:bg-orange-500 bi bi-plus-lg"></i>
                             </button>
                         </div>
                         <div id="linkInputs" class="mt-2 space-y-2 text-black dark:text-orange-500">
                             @foreach ($socialButtons as $index => $socialButton)
-                                <div class="grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3"
+                                <div class="grid grid-cols-6 gap-3 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item"
                                     data-id="{{ $index }}">
                                     <input type="text"
                                         class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
@@ -270,7 +270,7 @@
                 <div class="overflow-hidden">
                     <div id="linkpropsdiv"
                         class="h-0 mt-2 transition-transform duration-300 ease-in-out transform -translate-y-full opacity-0 -z-10">
-                        <div class="grid grid-cols-6 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3">
+                        <div class="grid grid-cols-6 gap-3 mb-2 sm:grid-cols-10 lg:grid-cols-cb link-input-item">
                             <input type="text"
                                 class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
                                 placeholder="Enter link" id="urlInput">
@@ -280,20 +280,20 @@
                             <button class="items-center justify-center flex-grow col-span-1"
                                 onclick="addLinkButton()">
                                 <i
-                                    class="block py-2 text-white rounded-lg bg-purple-700 dark:bg-orange-500 bi bi-plus-lg"></i>
+                                    class="block py-2 text-white bg-purple-700 rounded-lg dark:bg-orange-500 bi bi-plus-lg"></i>
                             </button>
                         </div>
                         <div id="linkContainers" class="space-y-2 text-black dark:text-orange-500">
                             @foreach ($linkButtons as $index => $linkButton)
-                                <div class="grid grid-cols-6 sm:grid-cols-10 lg:grid-cols-cb link-input-item gap-3"
+                                <div class="grid grid-cols-6 gap-3 sm:grid-cols-10 lg:grid-cols-cb link-input-item"
                                     data-id="{{ $index }}">
                                     <input type="text"
                                         class="flex-grow col-span-3 sm:col-span-5 lg:col-span-10 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                        value="{{ $linkButton->text }}" data-url="{{ $linkButton->url }}"
+                                        value="{{ $linkButton->url }}" data-url="{{ $linkButton->url }}"
                                         oninput="updateLinkButton({{ $index }})">
                                     <input type="text"
                                         class="flex-grow col-span-2 sm:col-span-4 lg:col-span-5 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg block w-full p-2.5"
-                                        value="{{ $linkButton->url }}"
+                                        value="{{ $linkButton->text }}" 
                                         oninput="updateLinkButton({{ $index }})">
                                     <button class="items-center justify-center flex-grow col-span-1"
                                         onclick="removeLinkButton(this, {{ $index }})">
@@ -339,7 +339,7 @@
                             onclick="changeBackground('linear-gradient(to top right, #1F2937, #6B7280'), changeFontWhite()">
                             Dark-Gray </x-button>
                     </div>
-                    <p class="text-black dark:text-white font-semibold mt-3">Atau</p>
+                    <p class="mt-3 font-semibold text-black dark:text-white">Atau</p>
                     <div id="modalWarna" class="items-center justify-center mt-3 bg-opacity-75">
                         <div class="justify-between flex-none md:flex lg:flex">
                             <div>
@@ -354,7 +354,7 @@
                                                     oninput="applyCustomBackground(); readInputColor('grad-1-label','grad-1')"
                                                     value="#ffffff">
                                                 <p id="color1"
-                                                    class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                                    class="text-sm font-semibold text-black cursor-pointer md:text-base lg:text-base dark:text-white">
                                                     #color1
                                                 </p>
                                             </div>
@@ -368,7 +368,7 @@
                                                     oninput="applyCustomBackground(); readInputColor('grad-2-label','grad-2')"
                                                     value="#ffffff">
                                                 <p id="color2"
-                                                    class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                                    class="text-sm font-semibold text-black cursor-pointer md:text-base lg:text-base dark:text-white">
                                                     #color2
                                                 </p>
                                             </div>
@@ -455,7 +455,7 @@
                                         id="font-c-label"><input type="color" id="font-c"
                                             oninput="readInputColor('font-c-label','font-c')" class="w-0 opacity-0">
                                         <p id="font-color-hex"
-                                            class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                            class="text-sm font-semibold text-black cursor-pointer md:text-base lg:text-base dark:text-white">
                                             #color
                                         </p>
                                     </div>
@@ -556,7 +556,7 @@
                                         <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
                                             id="btnf1-label">
                                             <p id="colorbtn1"
-                                                class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                                class="text-sm font-semibold text-black cursor-pointer md:text-base lg:text-base dark:text-white">
                                                 #color1
                                             </p>
                                             <input type="color" class="opacity-0 size-0" id="btnf1"
@@ -570,7 +570,7 @@
                                         <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
                                             id="btnf2-label">
                                             <p id="colorbtn2"
-                                                class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                                class="text-sm font-semibold text-black cursor-pointer md:text-base lg:text-base dark:text-white">
                                                 #color2
                                             </p>
                                             <input type="color" class="opacity-0 size-0" id="btnf2"
@@ -602,11 +602,11 @@
                                 <div class="flex items-center justify-center w-32 h-12 bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-orange-300 text-black dark:text-white font-semibold text-sm rounded-lg p-2.5"
                                     id="btnfc-label">
                                     <p id="colorfc"
-                                        class="font-semibold text-sm md:text-base lg:text-base text-black dark:text-white cursor-pointer">
+                                        class="text-sm font-semibold text-black cursor-pointer md:text-base lg:text-base dark:text-white">
                                         #color
                                     </p>
                                     <input type="color" class="opacity-0 size-0" id="btnfc" value="#ffffff"
-                                        class=" h-12 bg-transparent w-28"
+                                        class="h-12 bg-transparent w-28"
                                         oninput="changebtnclr(); readInputColor('btnfc-label','btnfc'); changehexcode('colorfc', 'btnfc');">
                                 </div>
                             </label>
