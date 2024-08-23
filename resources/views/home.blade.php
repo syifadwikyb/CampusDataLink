@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <title>Home</title>
+    <link rel="icon" href="{{ asset('asset/headerico.png') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <style>
     .no-scrollbar::-webkit-scrollbar {
@@ -41,18 +43,16 @@
                         <button onclick="window.location.href='{{ route('customization.edit') }}'"
                             class="px-3 py-3 ml-2 text-sm font-semibold text-white bg-purple-700 rounded-lg lg:text-base md:px-4 lg:px-5 hover:bg-purple-900 dark:bg-orange-500 dark:hover:bg-orange-700 dark:text-white focus:outline-none">
                             Edit
-                        </button>                        
-                        <!-- Assuming this is within the customization.edit view -->
-                        <form action="{{ route('customization.destroy', $customization->id) }}" method="POST"
-                            onsubmit="return confirm('Anda yakin akan menghapus halaman ini?');">
+                        </button>                                            
+                        <form id="delete-form-{{ $customization->id }}" action="{{ route('customization.destroy', $customization->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"
+                            <button type="button"
+                                onclick="confirmDeletion({{ $customization->id }})"
                                 class="px-3 py-3 ml-2 text-sm font-semibold text-white bg-red-500 rounded-lg hover:bg-red-800 lg:text-base md:px-4 lg:px-5 dark:bg-red-500 dark:text-white focus:outline-none">
                                 Delete
                             </button>
                         </form>
-
                     </div>
                 </div>
             @else
@@ -66,13 +66,32 @@
                         </button>
                     </div>
                 </div>
+                <p class="text-sm font-semibold p-5 text-black dark:text-white">Anda butuh bantuan? Klik <a class="text-blue-900 dark:text-white-300 underline" href="{{ route('tutorial') }}">disini</a></p>
             @endif
         </div>
     </div>
     <x-footer></x-footer>
 </body>
+<script>
+    function confirmDeletion(id) {
+        Swal.fire({
+            title: 'Anda yakin?',
+            text: 'Halaman ini akan dihapus secara permanen!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form if confirmed
+                document.getElementById('delete-form-' + id).submit();
+            }
+        });
+    }
+</script>
 <x-darkmode></x-darkmode>
 @vite('resources/js/dropdown.js')
 @vite('resources/js/header.js')
-
 </html>

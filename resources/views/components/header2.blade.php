@@ -1,7 +1,7 @@
 <div class="sticky top-0 z-50 w-auto h-auto transition-all duration-300 bg-white header">
     <div class="container flex items-center justify-between p-8 mx-auto dark:text-white">
         <div>
-            <p>Logo</p>
+            <img src="{{ asset('asset/link.png') }}" alt="" class="w-20 md:w-24 lg:w-28">
         </div>
         <div class="flex items-center justify-between gap-5">
             <div class="flex md:hidden">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="relative hidden md:flex">
-                <button id="bars-icon-profile" class="size-16">
+                <button id="bars-icon-profile" class="size-12">
                     <img id="profileImage" class="object-cover p-1 rounded-full"
                         src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }}"
                         alt="Profile">

@@ -1,7 +1,7 @@
 <div class="header sticky h-auto top-0 z-50 w-auto dark:text-white transition-all duration-300">
     <div class="container mx-auto flex justify-between items-center p-8">
         <div>
-            <p>Logo</p>
+            <img src="{{ asset('asset/link.png') }}" alt="" class="w-20 md:w-24 lg:w-28">
         </div>
         <div class="relative">
             <div class="hidden md:flex">
@@ -10,7 +10,8 @@
                 <a href="#keunggulan"><button
                         class="text-sm lg:text-base rounded-lg ml-1 px-2 md:px-5 lg:px-8 py-3 font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">Feature</button></a>
                 <a href="#aboutme"><button
-                        class="text-sm lg:text-base rounded-lg ml-1 px-2 md:px-5 lg:px-8 py-3 font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">About Me</button></a>
+                        class="text-sm lg:text-base rounded-lg ml-1 px-2 md:px-5 lg:px-8 py-3 font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">About
+                        Me</button></a>
                 <a href="/login"><button
                         class="text-sm lg:text-base rounded-lg ml-1 px-2 md:px-5 lg:px-8 py-3 font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white">Login</button></a>
                 <a href="/register"><button
@@ -25,7 +26,8 @@
                     <a href="/login"><button
                             class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white justify-center">Login</button></a>
                     <a href="#aboutme"><button
-                            class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white justify-center">About Me</button></a>
+                            class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white justify-center">About
+                            Me</button></a>
                     <a href="#keunggulan"><button
                             class="mb-1 flex rounded-lg p-2 w-full font-bold  hover:text-white hover:bg-purple-700 dark:hover:bg-orange-500 dark:hover:text-white dark:text-white justify-center">Feature</button></a>
                     <a href="#template"><button

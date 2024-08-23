@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     @vite('resources/css/app.css')
     <title>Customization</title>
+    <link rel="icon" href="{{ asset('asset/headerico.png') }}">
 </head>
 
 <x-header2></x-header2>

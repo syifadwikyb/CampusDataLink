@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
+    <link rel="icon" href="{{ asset('asset/headerico.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     @vite('resources/css/app.css')
@@ -14,8 +15,8 @@
 <body class="h-screen bg-white dark:bg-slate-900 font-montserrat">
     <div class="sticky top-0 z-50 w-auto h-auto transition-all duration-300 bg-white header">
         <div class="container flex items-center justify-between p-8 mx-auto">
-            <div class="text-black dark:text-white">
-                <p>Logo</p>
+            <div>
+                <img src="{{ asset('asset/link.png') }}" alt="" class="w-20 md:w-24 lg:w-28">
             </div>
             <div class="relative">
                 <div class="hidden space-x-4 md:flex">
